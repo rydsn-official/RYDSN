@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rohingya Youth Development Society Network (RYDSN)</title>
-    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -12,18 +11,17 @@
                 extend: {
                     colors: {
                         brand: {
-                            dark: '#001E2B',     // Deepest Slate Teal
-                            primary: '#005F73',  // Royal Teal
-                            accent: '#0A9396',   // Bright Cyan Teal
-                            amber: '#EE9B00',    // Warm Amber Gold Accent
-                            light: '#F4F7F6',    // Ice Soft Grey Background
+                            dark: '#001E2B',
+                            primary: '#005F73',
+                            accent: '#0A9396',
+                            amber: '#EE9B00',
+                            light: '#F4F7F6',
                         }
                     }
                 }
             }
         }
     </script>
-    <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body class="bg-brand-light text-slate-800 font-sans">
@@ -32,7 +30,6 @@
     <nav class="bg-white/95 backdrop-blur-md shadow-sm fixed w-full top-0 z-50 border-b border-slate-200/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- Logo & Brand Name -->
                 <div class="flex items-center space-x-3">
                     <img src="FB_IMG_1789899462416.jpg" alt="RYDSN Logo" class="w-12 h-12 object-contain rounded-full border-2 border-brand-accent/30 shadow-sm" onerror="this.src='https://via.placeholder.com/48?text=RYDSN'">
                     <div>
@@ -41,48 +38,44 @@
                     </div>
                 </div>
 
-                <!-- Desktop Navigation Links -->
                 <div class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-slate-700">
                     <a href="#about" class="hover:text-brand-accent transition">About Us</a>
                     <a href="#objectives" class="hover:text-brand-accent transition">Objectives</a>
                     <a href="#programs" class="hover:text-brand-accent transition">Areas of Work</a>
                     <a href="#news" class="hover:text-brand-accent transition">Recent Works</a>
                     <a href="#team" class="hover:text-brand-accent transition">Leadership</a>
-                    <a href="#contact" class="bg-brand-primary text-white px-5 py-2.5 rounded-xl hover:bg-brand-dark shadow-md hover:shadow-lg transition">Get Involved</a>
+                    <a href="#contact" class="bg-brand-primary text-white px-5 py-2.5 rounded-xl hover:bg-brand-dark shadow-md transition">Get Involved</a>
                 </div>
 
-                <!-- Mobile Menu Button (Hamburger) -->
                 <div class="lg:hidden flex items-center">
-                    <button id="mobile-menu-btn" type="button" class="text-slate-700 hover:text-brand-primary focus:outline-none p-2" aria-label="Toggle Menu">
+                    <button id="mobile-menu-btn" type="button" class="text-slate-700 focus:outline-none p-2">
                         <i id="menu-icon" class="fa-solid fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Mobile Menu Panel -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-3 shadow-lg">
-            <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light hover:text-brand-primary">About Us</a>
-            <a href="#objectives" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light hover:text-brand-primary">Objectives</a>
-            <a href="#programs" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light hover:text-brand-primary">Areas of Work</a>
-            <a href="#news" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light hover:text-brand-primary">Recent Works</a>
-            <a href="#team" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light hover:text-brand-primary">Leadership</a>
-            <a href="#contact" class="mobile-nav-link block text-center bg-brand-primary text-white px-4 py-3 rounded-xl font-bold hover:bg-brand-dark transition mt-2">Get Involved</a>
+            <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light">About Us</a>
+            <a href="#objectives" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light">Objectives</a>
+            <a href="#programs" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light">Areas of Work</a>
+            <a href="#news" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light">Recent Works</a>
+            <a href="#team" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light">Leadership</a>
+            <a href="#contact" class="mobile-nav-link block text-center bg-brand-primary text-white px-4 py-3 rounded-xl font-bold mt-2">Get Involved</a>
         </div>
     </nav>
 
     <!-- Hero Section -->
     <section class="relative pt-36 pb-28 bg-gradient-to-br from-brand-dark via-[#003845] to-brand-primary text-white overflow-hidden">
-        <div class="absolute inset-0 opacity-10 bg-center bg-no-repeat bg-contain pointer-events-none" style="background-image: url('FB_IMG_1789899462416.jpg');"></div>
         <div class="relative max-w-5xl mx-auto px-4 text-center z-10">
-            <span class="bg-brand-accent/20 text-teal-200 text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full border border-brand-accent/30 inline-block mb-6 uppercase tracking-widest shadow-inner">
-                COMMUNITY IN ACTION • YOUTH IN LEADERSHIP • HOPE FOR THE FUTURE
+            <span class="bg-brand-accent/20 text-teal-200 text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full border border-brand-accent/30 inline-block mb-6 uppercase tracking-widest">
+                COMMUNITY IN ACTION • YOUTH IN LEADERSHIP
             </span>
-            <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight">
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
                 Empowering Youth, <br><span class="text-brand-amber">Building Futures</span>
             </h1>
             <p class="text-base md:text-lg text-slate-200 max-w-3xl mx-auto mb-10 leading-relaxed">
-                Rohingya Youth Development Society Network (RYDSN) is a youth-led organization committed to empowering Rohingya young people and communities through education, skills development, leadership, protection, advocacy, and community-based initiatives.
+                Rohingya Youth Development Society Network (RYDSN) is a youth-led organization committed to empowering Rohingya young people through education, skills development, protection, and leadership.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="#about" class="bg-brand-amber text-brand-dark font-bold px-7 py-3.5 rounded-xl shadow-lg hover:bg-amber-400 transition">Learn About RYDSN</a>
@@ -96,116 +89,59 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-extrabold text-brand-dark">Mission & Vision</h2>
-                <p class="text-slate-600 mt-2">Empowering youth, protecting dignity, and building resilient communities.</p>
             </div>
             <div class="grid md:grid-cols-2 gap-8">
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition">
-                    <div class="w-14 h-14 bg-teal-50 text-brand-accent rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-inner">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200/80">
+                    <div class="w-14 h-14 bg-teal-50 text-brand-accent rounded-2xl flex items-center justify-center text-2xl mb-6">
                         <i class="fa-solid fa-bullseye"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-brand-dark mb-3">Our Mission</h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        “To empower Rohingya youth through education, skills development, leadership, protection, advocacy, and meaningful community participation.”
-                    </p>
+                    <p class="text-slate-600 leading-relaxed">“To empower Rohingya youth through education, skills development, leadership, protection, advocacy, and meaningful community participation.”</p>
                 </div>
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200/80 hover:shadow-md transition">
-                    <div class="w-14 h-14 bg-amber-50 text-brand-amber rounded-2xl flex items-center justify-center text-2xl mb-6 shadow-inner">
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200/80">
+                    <div class="w-14 h-14 bg-amber-50 text-brand-amber rounded-2xl flex items-center justify-center text-2xl mb-6">
                         <i class="fa-solid fa-eye"></i>
                     </div>
                     <h3 class="text-2xl font-bold text-brand-dark mb-3">Our Vision</h3>
-                    <p class="text-slate-600 leading-relaxed">
-                        “A safe, empowered, educated, and resilient Rohingya community where every young person has the opportunity to learn, lead, participate, and build a better future.”
-                    </p>
+                    <p class="text-slate-600 leading-relaxed">“A safe, empowered, educated, and resilient Rohingya community where every young person has the opportunity to learn, lead, and build a better future.”</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Key Objectives -->
+    <!-- Objectives -->
     <section id="objectives" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-14">
                 <h2 class="text-3xl font-extrabold text-brand-dark">Our Key Objectives</h2>
-                <p class="text-slate-600 mt-2">Strategic priorities guiding RYDSN initiatives</p>
             </div>
             <div class="grid md:grid-cols-2 gap-4">
-                <div class="flex items-start space-x-4 p-5 bg-slate-50 rounded-2xl border border-slate-200/60 hover:border-brand-accent/40 transition">
-                    <i class="fa-solid fa-circle-check text-brand-accent text-2xl mt-0.5"></i>
-                    <span class="text-slate-700 font-medium leading-relaxed">Promote education and lifelong learning opportunities for youth.</span>
-                </div>
-                <div class="flex items-start space-x-4 p-5 bg-slate-50 rounded-2xl border border-slate-200/60 hover:border-brand-accent/40 transition">
-                    <i class="fa-solid fa-circle-check text-brand-accent text-2xl mt-0.5"></i>
-                    <span class="text-slate-700 font-medium leading-relaxed">Develop leadership and life skills among young people.</span>
-                </div>
-                <div class="flex items-start space-x-4 p-5 bg-slate-50 rounded-2xl border border-slate-200/60 hover:border-brand-accent/40 transition">
-                    <i class="fa-solid fa-circle-check text-brand-accent text-2xl mt-0.5"></i>
-                    <span class="text-slate-700 font-medium leading-relaxed">Increase youth participation in community decision-making.</span>
-                </div>
-                <div class="flex items-start space-x-4 p-5 bg-slate-50 rounded-2xl border border-slate-200/60 hover:border-brand-accent/40 transition">
-                    <i class="fa-solid fa-circle-check text-brand-accent text-2xl mt-0.5"></i>
-                    <span class="text-slate-700 font-medium leading-relaxed">Promote protection, dignity, inclusion, and equal opportunities.</span>
-                </div>
-                <div class="flex items-start space-x-4 p-5 bg-slate-50 rounded-2xl border border-slate-200/60 hover:border-brand-accent/40 transition">
-                    <i class="fa-solid fa-circle-check text-brand-accent text-2xl mt-0.5"></i>
-                    <span class="text-slate-700 font-medium leading-relaxed">Support youth-led community initiatives and local solidarity.</span>
-                </div>
-                <div class="flex items-start space-x-4 p-5 bg-slate-50 rounded-2xl border border-slate-200/60 hover:border-brand-accent/40 transition">
-                    <i class="fa-solid fa-circle-check text-brand-accent text-2xl mt-0.5"></i>
-                    <span class="text-slate-700 font-medium leading-relaxed">Build strategic partnerships with local, national, and international partners.</span>
-                </div>
+                <div class="flex items-start space-x-4 p-5 bg-slate-50 rounded-2xl border border-slate-200/60"><i class="fa-solid fa-circle-check text-brand-accent text-2xl"></i><span class="text-slate-700 font-medium">Promote education and lifelong learning opportunities for youth.</span></div>
+                <div class="flex items-start space-x-4 p-5 bg-slate-50 rounded-2xl border border-slate-200/60"><i class="fa-solid fa-circle-check text-brand-accent text-2xl"></i><span class="text-slate-700 font-medium">Develop leadership and life skills among young people.</span></div>
+                <div class="flex items-start space-x-4 p-5 bg-slate-50 rounded-2xl border border-slate-200/60"><i class="fa-solid fa-circle-check text-brand-accent text-2xl"></i><span class="text-slate-700 font-medium">Increase youth participation in community decision-making.</span></div>
+                <div class="flex items-start space-x-4 p-5 bg-slate-50 rounded-2xl border border-slate-200/60"><i class="fa-solid fa-circle-check text-brand-accent text-2xl"></i><span class="text-slate-700 font-medium">Promote protection, dignity, inclusion, and equal opportunities.</span></div>
             </div>
         </div>
     </section>
 
-    <!-- Areas of Work -->
+    <!-- Programs -->
     <section id="programs" class="py-20 bg-brand-light">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-14">
                 <h2 class="text-3xl font-extrabold text-brand-dark">Our Areas of Work</h2>
-                <p class="text-slate-600 mt-2">Key domains where RYDSN creates meaningful impact</p>
             </div>
             <div class="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-brand-accent hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-teal-50 text-brand-primary rounded-xl flex items-center justify-center text-xl mb-4">
-                        <i class="fa-solid fa-graduation-cap"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-dark mb-2">Education & Learning</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Educational awareness, learning support, literacy, digital learning, mentoring, and workshops.</p>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-bold text-brand-dark mb-2"><i class="fa-solid fa-graduation-cap text-brand-accent mr-2"></i> Education & Learning</h3>
+                    <p class="text-slate-600 text-sm">Educational awareness, learning support, literacy, digital learning, mentoring, and workshops.</p>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-brand-accent hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-teal-50 text-brand-primary rounded-xl flex items-center justify-center text-xl mb-4">
-                        <i class="fa-solid fa-user-gear"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-dark mb-2">Youth Leadership</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Capacity building, public speaking, teamwork, problem-solving, and youth-led initiatives.</p>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-bold text-brand-dark mb-2"><i class="fa-solid fa-user-gear text-brand-accent mr-2"></i> Youth Leadership</h3>
+                    <p class="text-slate-600 text-sm">Capacity building, public speaking, teamwork, problem-solving, and youth-led initiatives.</p>
                 </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-brand-accent hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-teal-50 text-brand-primary rounded-xl flex items-center justify-center text-xl mb-4">
-                        <i class="fa-solid fa-laptop-code"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-dark mb-2">Skills Development</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Digital skills, career preparation, entrepreneurship awareness, and financial literacy.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-brand-accent hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-teal-50 text-brand-primary rounded-xl flex items-center justify-center text-xl mb-4">
-                        <i class="fa-solid fa-shield-halved"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-dark mb-2">Protection & Well-Being</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Promoting dignity, safety awareness, rights protection, and referral mechanisms for vulnerable groups.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-brand-accent hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-teal-50 text-brand-primary rounded-xl flex items-center justify-center text-xl mb-4">
-                        <i class="fa-solid fa-bullhorn"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-dark mb-2">Youth Advocacy</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Providing platforms for youth voices: Listen → Understand → Organize → Advocate → Create Change.</p>
-                </div>
-                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:border-brand-accent hover:shadow-md transition">
-                    <div class="w-12 h-12 bg-teal-50 text-brand-primary rounded-xl flex items-center justify-center text-xl mb-4">
-                        <i class="fa-solid fa-hands-holding-child"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-dark mb-2">Peace & Social Cohesion</h3>
-                    <p class="text-slate-600 text-sm leading-relaxed">Building bridges between communities, encouraging solidarity, tolerance, and peaceful coexistence.</p>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-bold text-brand-dark mb-2"><i class="fa-solid fa-laptop-code text-brand-accent mr-2"></i> Skills Development</h3>
+                    <p class="text-slate-600 text-sm">Digital skills, career preparation, entrepreneurship awareness, and financial literacy.</p>
                 </div>
             </div>
         </div>
@@ -216,7 +152,7 @@
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-14">
                 <h2 class="text-3xl font-extrabold text-brand-dark">Recent Works</h2>
-                <p class="text-slate-600 mt-2">Latest updates, activities, and field events from RYDSN</p>
+                <p class="text-slate-600 mt-2">Latest updates, field events, and activities</p>
             </div>
             <div id="news-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
                 <div class="col-span-full text-center text-slate-400 py-12">Loading field updates...</div>
@@ -231,45 +167,9 @@
                 <h2 class="text-3xl font-extrabold text-brand-dark">Leadership Team</h2>
                 <p class="text-slate-600 mt-2">Dedicated individuals guiding the vision and operations of RYDSN</p>
             </div>
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 text-center shadow-sm">
-                    <div class="w-20 h-20 bg-brand-primary/10 rounded-full mx-auto flex items-center justify-center text-brand-primary text-2xl font-bold mb-4">
-                        <i class="fa-solid fa-user-tie"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-dark">Executive Director</h3>
-                    <span class="text-xs font-semibold text-brand-accent uppercase tracking-wider block mb-3">RYDSN Leadership</span>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Coordinates strategic planning, program implementation, and partnerships across RYDSN networks.</p>
-                    <a href="mailto:contact@rydsn.org" class="text-xs text-slate-500 hover:text-brand-primary"><i class="fa-regular fa-envelope mr-1"></i> contact@rydsn.org</a>
-                </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 text-center shadow-sm">
-                    <div class="w-20 h-20 bg-brand-primary/10 rounded-full mx-auto flex items-center justify-center text-brand-primary text-2xl font-bold mb-4">
-                        <i class="fa-solid fa-user-shield"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-dark">Program Coordinator</h3>
-                    <span class="text-xs font-semibold text-brand-accent uppercase tracking-wider block mb-3">Youth & Education</span>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Manages field workshops, youth capacity building, literacy drives, and community outreach activities.</p>
-                    <a href="mailto:info@rydsn.org" class="text-xs text-slate-500 hover:text-brand-primary"><i class="fa-regular fa-envelope mr-1"></i> info@rydsn.org</a>
-                </div>
-                <div class="bg-white p-6 rounded-2xl border border-slate-200/80 text-center shadow-sm sm:col-span-2 lg:col-span-1">
-                    <div class="w-20 h-20 bg-brand-primary/10 rounded-full mx-auto flex items-center justify-center text-brand-primary text-2xl font-bold mb-4">
-                        <i class="fa-solid fa-user-group"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-brand-dark">Advisory Board</h3>
-                    <span class="text-xs font-semibold text-brand-accent uppercase tracking-wider block mb-3">Community Mentors</span>
-                    <p class="text-slate-600 text-sm leading-relaxed mb-4">Provides strategic counsel, protection guidelines, and humanitarian alignment for sustainable growth.</p>
-                    <a href="mailto:advisor@rydsn.org" class="text-xs text-slate-500 hover:text-brand-primary"><i class="fa-regular fa-envelope mr-1"></i> advisor@rydsn.org</a>
-                </div>
+            <div id="team-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="col-span-full text-center text-slate-400 py-12">Loading leadership team...</div>
             </div>
-        </div>
-    </section>
-
-    <!-- Quote Banner -->
-    <section class="py-16 bg-brand-dark text-white text-center relative overflow-hidden">
-        <div class="max-w-4xl mx-auto px-4 relative z-10">
-            <blockquote class="text-xl md:text-2xl font-serif italic mb-4 leading-relaxed">
-                “We are not only building an organization; we are building a generation of responsible, compassionate, and empowered youth leaders.”
-            </blockquote>
-            <p class="text-xs font-semibold uppercase tracking-widest text-brand-amber">— Rohingya Youth Development Society Network (RYDSN)</p>
         </div>
     </section>
 
@@ -279,59 +179,21 @@
             <div class="grid md:grid-cols-2 gap-12 items-start">
                 <div>
                     <h2 class="text-3xl font-extrabold text-brand-dark mb-4">Contact Information</h2>
-                    <p class="text-slate-600 mb-8 leading-relaxed">Reach out to support our cause, request partnerships, or get involved in our community initiatives.</p>
-
-                    <div class="space-y-6">
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-teal-50 text-brand-accent rounded-xl flex items-center justify-center flex-shrink-0 text-lg">
-                                <i class="fa-solid fa-location-dot"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-brand-dark text-sm">Location</h4>
-                                <p class="text-slate-600 text-sm mt-0.5">Rohingya Refugee Camps, Ukhiya, Cox's Bazar, Bangladesh</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-teal-50 text-brand-accent rounded-xl flex items-center justify-center flex-shrink-0 text-lg">
-                                <i class="fa-solid fa-envelope"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-brand-dark text-sm">Official Email</h4>
-                                <p class="text-slate-600 text-sm mt-0.5">official.rydsn@gmail.com</p>
-                            </div>
-                        </div>
-                        <div class="flex items-start space-x-4">
-                            <div class="w-12 h-12 bg-teal-50 text-brand-accent rounded-xl flex items-center justify-center flex-shrink-0 text-lg">
-                                <i class="fa-brands fa-whatsapp"></i>
-                            </div>
-                            <div>
-                                <h4 class="font-bold text-brand-dark text-sm">Official WhatsApp</h4>
-                                <p class="text-slate-600 text-sm mt-0.5">+880 1800-000000</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="flex space-x-3 mt-8">
-                        <a href="https://www.facebook.com/share/1DAUcUiUea/" target="_blank" class="w-10 h-10 bg-blue-600 text-white rounded-xl flex items-center justify-center hover:bg-blue-700 transition">
-                            <i class="fa-brands fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-sky-500 text-white rounded-xl flex items-center justify-center hover:bg-sky-600 transition">
-                            <i class="fa-brands fa-twitter"></i>
-                        </a>
-                        <a href="#" class="w-10 h-10 bg-emerald-600 text-white rounded-xl flex items-center justify-center hover:bg-emerald-700 transition">
-                            <i class="fa-brands fa-whatsapp"></i>
-                        </a>
+                    <p class="text-slate-600 mb-8">Reach out to support our cause, request partnerships, or get involved.</p>
+                    <div class="space-y-4">
+                        <p class="text-sm"><i class="fa-solid fa-location-dot text-brand-accent mr-2"></i> Ukhiya, Cox's Bazar, Bangladesh</p>
+                        <p class="text-sm"><i class="fa-solid fa-envelope text-brand-accent mr-2"></i> official.rydsn@gmail.com</p>
                     </div>
                 </div>
 
                 <div class="bg-brand-light p-8 rounded-2xl border border-slate-200">
                     <h3 class="text-xl font-bold text-brand-dark mb-6">Send us a Message</h3>
                     <form id="contact-form" class="space-y-4">
-                        <input type="text" id="sender-name" placeholder="Your Name" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-accent outline-none">
-                        <input type="email" id="sender-email" placeholder="Your Email" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-accent outline-none">
-                        <input type="text" id="sender-subject" placeholder="Subject" required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-accent outline-none">
-                        <textarea id="sender-message" rows="4" placeholder="Your Message..." required class="w-full px-4 py-3 rounded-xl border border-slate-300 focus:ring-2 focus:ring-brand-accent outline-none"></textarea>
-                        <button type="submit" class="w-full bg-brand-primary text-white font-bold py-3.5 rounded-xl hover:bg-brand-dark transition shadow-md">Submit Message</button>
+                        <input type="text" id="sender-name" placeholder="Your Name" required class="w-full px-4 py-3 rounded-xl border border-slate-300 outline-none">
+                        <input type="email" id="sender-email" placeholder="Your Email" required class="w-full px-4 py-3 rounded-xl border border-slate-300 outline-none">
+                        <input type="text" id="sender-subject" placeholder="Subject" required class="w-full px-4 py-3 rounded-xl border border-slate-300 outline-none">
+                        <textarea id="sender-message" rows="4" placeholder="Your Message..." required class="w-full px-4 py-3 rounded-xl border border-slate-300 outline-none"></textarea>
+                        <button type="submit" class="w-full bg-brand-primary text-white font-bold py-3.5 rounded-xl hover:bg-brand-dark transition">Submit Message</button>
                     </form>
                     <div id="form-status" class="mt-4 text-center text-sm font-semibold"></div>
                 </div>
@@ -351,29 +213,6 @@
     <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
 
     <script>
-        // Mobile Navigation Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const menuIcon = document.getElementById('menu-icon');
-        const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-            if (mobileMenu.classList.contains('hidden')) {
-                menuIcon.className = 'fa-solid fa-bars text-2xl';
-            } else {
-                menuIcon.className = 'fa-solid fa-xmark text-2xl';
-            }
-        });
-
-        mobileNavLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                menuIcon.className = 'fa-solid fa-bars text-2xl';
-            });
-        });
-
-        // YOUR FIREBASE CONFIG INTEGRATED
         const firebaseConfig = {
             apiKey: "AIzaSyB8004SuqvCgCfPZ3wLyt1azKsmCkN1cFU",
             authDomain: "rydsn-d3d48.firebaseapp.com",
@@ -386,7 +225,12 @@
         firebase.initializeApp(firebaseConfig);
         const db = firebase.firestore();
 
-        // Fetch Field Updates
+        // Mobile Nav Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Fetch Field Updates (Multiple Images Support)
         const newsContainer = document.getElementById('news-container');
         db.collection('news').orderBy('createdAt', 'desc').onSnapshot((snapshot) => {
             if (snapshot.empty) {
@@ -396,9 +240,22 @@
             let html = '';
             snapshot.forEach((doc) => {
                 const item = doc.data();
+                const imageList = item.images && item.images.length > 0 ? item.images : (item.imageUrl ? [item.imageUrl] : []);
+                
+                let imageGalleryHtml = '';
+                if (imageList.length === 1) {
+                    imageGalleryHtml = `<img src="${imageList[0]}" alt="${item.title}" class="w-full h-48 object-cover">`;
+                } else if (imageList.length > 1) {
+                    imageGalleryHtml = `
+                        <div class="grid grid-cols-2 gap-1 p-1 bg-slate-100 max-h-56 overflow-y-auto">
+                            ${imageList.map(img => `<img src="${img}" class="w-full h-24 object-cover rounded">`).join('')}
+                        </div>
+                    `;
+                }
+
                 html += `
                     <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col hover:shadow-md transition">
-                        ${item.imageUrl ? `<img src="${item.imageUrl}" alt="${item.title}" class="w-full h-48 object-cover">` : ''}
+                        ${imageGalleryHtml}
                         <div class="p-6 flex-1 flex flex-col justify-between">
                             <div>
                                 <div class="flex justify-between items-center mb-2">
@@ -415,11 +272,37 @@
             newsContainer.innerHTML = html;
         });
 
-        // Contact Form Submission
-        const contactForm = document.getElementById('contact-form');
-        const formStatus = document.getElementById('form-status');
-        contactForm.addEventListener('submit', (e) => {
+        // Fetch Leadership Team from Firestore
+        const teamContainer = document.getElementById('team-container');
+        db.collection('team').orderBy('createdAt', 'desc').onSnapshot((snapshot) => {
+            if (snapshot.empty) {
+                teamContainer.innerHTML = '<p class="col-span-full text-center text-slate-400 py-8">No leadership members added yet.</p>';
+                return;
+            }
+            let html = '';
+            snapshot.forEach((doc) => {
+                const member = doc.data();
+                html += `
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200/80 text-center shadow-sm hover:shadow-md transition">
+                        ${member.imageUrl ? 
+                            `<img src="${member.imageUrl}" class="w-20 h-20 rounded-full mx-auto object-cover mb-4 border-2 border-brand-accent">` : 
+                            `<div class="w-20 h-20 bg-brand-primary/10 rounded-full mx-auto flex items-center justify-center text-brand-primary text-2xl font-bold mb-4"><i class="fa-solid fa-user-tie"></i></div>`
+                        }
+                        <h3 class="text-xl font-bold text-brand-dark">${member.name}</h3>
+                        <p class="text-sm font-bold text-brand-primary mt-1">${member.role}</p>
+                        ${member.subtitle ? `<span class="text-xs font-semibold text-brand-accent uppercase tracking-wider block mb-3">${member.subtitle}</span>` : ''}
+                        ${member.bio ? `<p class="text-slate-600 text-sm leading-relaxed mb-4 mt-2">${member.bio}</p>` : ''}
+                        ${member.email ? `<a href="mailto:${member.email}" class="text-xs text-slate-500 hover:text-brand-primary"><i class="fa-regular fa-envelope mr-1"></i> ${member.email}</a>` : ''}
+                    </div>
+                `;
+            });
+            teamContainer.innerHTML = html;
+        });
+
+        // Contact Form
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
             e.preventDefault();
+            const status = document.getElementById('form-status');
             db.collection('messages').add({
                 name: document.getElementById('sender-name').value,
                 email: document.getElementById('sender-email').value,
@@ -427,12 +310,9 @@
                 message: document.getElementById('sender-message').value,
                 createdAt: firebase.firestore.FieldValue.serverTimestamp()
             }).then(() => {
-                formStatus.className = "text-brand-accent font-bold";
-                formStatus.innerText = "Thank you! Message sent successfully.";
-                contactForm.reset();
-            }).catch((err) => {
-                formStatus.className = "text-red-600 font-bold";
-                formStatus.innerText = "Error: " + err.message;
+                status.className = "text-brand-accent font-bold";
+                status.innerText = "Thank you! Message sent successfully.";
+                document.getElementById('contact-form').reset();
             });
         });
     </script>
