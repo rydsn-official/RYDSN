@@ -8,41 +8,48 @@
 </head>
 <body class="bg-slate-100 min-h-screen">
 
-    <!-- Login Box -->
+    <!-- Login Container -->
     <div id="login-box" class="max-w-md mx-auto mt-20 p-8 bg-white rounded-2xl shadow-md border border-slate-200">
-        <h2 class="text-2xl font-bold text-center text-slate-900 mb-6">RYDSN Admin Login</h2>
+        <div class="text-center mb-6">
+            <img src="FB_IMG_1789899462416.jpg" alt="RYDSN Logo" class="w-16 h-16 mx-auto mb-2 object-contain rounded-full" onerror="this.src='https://via.placeholder.com/64?text=RYDSN'">
+            <h2 class="text-2xl font-bold text-slate-900">RYDSN Admin Portal</h2>
+        </div>
         <form id="login-form" class="space-y-4">
-            <input type="email" id="admin-email" placeholder="Admin Email" required class="w-full px-4 py-3 rounded-lg border border-slate-300">
-            <input type="password" id="admin-pass" placeholder="Password" required class="w-full px-4 py-3 rounded-lg border border-slate-300">
-            <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700">Login</button>
+            <input type="email" id="admin-email" placeholder="Admin Email" required class="w-full px-4 py-3 rounded-lg border border-slate-300 outline-none">
+            <input type="password" id="admin-pass" placeholder="Password" required class="w-full px-4 py-3 rounded-lg border border-slate-300 outline-none">
+            <button type="submit" class="w-full bg-emerald-600 text-white font-bold py-3 rounded-lg hover:bg-emerald-700 transition">Login</button>
         </form>
         <p id="login-error" class="text-red-500 text-sm mt-3 text-center"></p>
     </div>
 
-    <!-- Dashboard -->
+    <!-- Dashboard Container -->
     <div id="dashboard" class="hidden max-w-6xl mx-auto p-6">
-        <div class="flex justify-between items-center mb-8 bg-white p-6 rounded-xl shadow-sm">
-            <h1 class="text-2xl font-bold text-slate-800">RYDSN Admin Dashboard</h1>
-            <button id="logout-btn" class="bg-red-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-600">Logout</button>
+        <div class="flex justify-between items-center mb-8 bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+            <div class="flex items-center space-x-3">
+                <img src="FB_IMG_1789899462416.jpg" class="w-10 h-10 object-contain rounded-full" onerror="this.src='https://via.placeholder.com/40?text=RYDSN'">
+                <h1 class="text-xl font-bold text-slate-800">RYDSN Content Dashboard</h1>
+            </div>
+            <button id="logout-btn" class="bg-red-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-600 transition">Logout</button>
         </div>
 
         <div class="grid md:grid-cols-2 gap-8">
-            <!-- Add News -->
-            <div class="bg-white p-6 rounded-xl shadow-sm">
-                <h2 class="text-xl font-bold mb-4">Post News / Announcement</h2>
+            <!-- News & Event Posting Form -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                <h2 class="text-lg font-bold text-slate-900 mb-4">Post Field Activity / Update</h2>
                 <form id="add-news-form" class="space-y-4">
-                    <input type="text" id="news-title" placeholder="Title" required class="w-full p-3 border rounded-lg">
-                    <input type="text" id="news-category" placeholder="Category (e.g., Event, Training)" class="w-full p-3 border rounded-lg">
-                    <textarea id="news-details" rows="4" placeholder="News Details" required class="w-full p-3 border rounded-lg"></textarea>
-                    <button type="submit" class="bg-blue-600 text-white px-6 py-2.5 rounded-lg font-bold hover:bg-blue-700">Publish News</button>
+                    <input type="text" id="news-title" placeholder="Event / Activity Title" required class="w-full p-3 border rounded-lg outline-none">
+                    <input type="text" id="news-category" placeholder="Category (e.g. Community Awareness, Youth Leadership)" class="w-full p-3 border rounded-lg outline-none">
+                    <input type="url" id="news-image" placeholder="Image URL (e.g. https://...)" class="w-full p-3 border rounded-lg outline-none">
+                    <textarea id="news-details" rows="4" placeholder="Update Description..." required class="w-full p-3 border rounded-lg outline-none"></textarea>
+                    <button type="submit" class="bg-emerald-600 text-white px-6 py-2.5 rounded-lg font-bold hover:bg-emerald-700 transition">Publish Update</button>
                 </form>
             </div>
 
-            <!-- Messages List -->
-            <div class="bg-white p-6 rounded-xl shadow-sm">
-                <h2 class="text-xl font-bold mb-4">Received Messages</h2>
-                <div id="messages-list" class="space-y-4 max-h-[400px] overflow-y-auto">
-                    <p class="text-slate-500">Loading messages...</p>
+            <!-- Received Messages List -->
+            <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                <h2 class="text-lg font-bold text-slate-900 mb-4">Inbound Contact Messages</h2>
+                <div id="messages-list" class="space-y-4 max-h-[420px] overflow-y-auto pr-2">
+                    <p class="text-slate-400">Loading messages...</p>
                 </div>
             </div>
         </div>
@@ -71,7 +78,7 @@
         const loginBox = document.getElementById('login-box');
         const dashboard = document.getElementById('dashboard');
 
-        // Authentication State Check
+        // Check Auth Status
         auth.onAuthStateChanged((user) => {
             if (user) {
                 loginBox.classList.add('hidden');
@@ -83,7 +90,7 @@
             }
         });
 
-        // Admin Login Handle
+        // Login Handler
         document.getElementById('login-form').addEventListener('submit', (e) => {
             e.preventDefault();
             const email = document.getElementById('admin-email').value;
@@ -93,40 +100,41 @@
             });
         });
 
-        // Logout Handle
+        // Logout Handler
         document.getElementById('logout-btn').addEventListener('click', () => auth.signOut());
 
-        // Add News Handle
+        // Publish News
         document.getElementById('add-news-form').addEventListener('submit', (e) => {
             e.preventDefault();
             db.collection('news').add({
                 title: document.getElementById('news-title').value,
                 category: document.getElementById('news-category').value,
+                imageUrl: document.getElementById('news-image').value,
                 details: document.getElementById('news-details').value,
                 date: new Date().toLocaleDateString(),
                 createdAt: firebase.firestore.FieldValue.serverTimestamp()
             }).then(() => {
-                alert('News Published Successfully!');
+                alert('Field update published successfully!');
                 document.getElementById('add-news-form').reset();
             });
         });
 
-        // Load Messages Function
+        // Load Messages
         function loadMessages() {
             const messagesList = document.getElementById('messages-list');
             db.collection('messages').orderBy('createdAt', 'desc').onSnapshot((snapshot) => {
                 if (snapshot.empty) {
-                    messagesList.innerHTML = '<p class="text-slate-500">No messages found.</p>';
+                    messagesList.innerHTML = '<p class="text-slate-400">No messages received yet.</p>';
                     return;
                 }
                 let html = '';
                 snapshot.forEach((doc) => {
                     const msg = doc.data();
                     html += `
-                        <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
-                            <p class="font-bold text-slate-800">${msg.name} <span class="text-xs font-normal text-slate-500">(${msg.email})</span></p>
-                            <p class="text-xs font-semibold text-blue-600 mt-1">${msg.subject}</p>
-                            <p class="text-sm text-slate-600 mt-2">${msg.message}</p>
+                        <div class="p-4 bg-slate-50 rounded-xl border border-slate-200">
+                            <p class="font-bold text-slate-800 text-sm">${msg.name} <span class="text-xs font-normal text-slate-500">(${msg.email})</span></p>
+                            <p class="text-xs font-semibold text-emerald-600 mt-1">${msg.subject}</p>
+                            <p class="text-xs text-slate-600 mt-2 leading-relaxed">${msg.message}</p>
                         </div>
                     `;
                 });
