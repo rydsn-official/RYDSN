@@ -1,138 +1,700 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rohingya Youth Development Society Network (RYDSN)</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#001E2B',
+                            primary: '#005F73',
+                            accent: '#0A9396',
+                            amber: '#EE9B00',
+                            light: '#F4F7F6',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-slate-50 font-sans text-slate-800 min-h-screen flex flex-col justify-between">
+<body class="bg-brand-light text-slate-800 font-sans leading-relaxed">
 
-    <!-- 1. TOP CONTACT & INFORMATION BAR (সবসময় সবার উপরে থাকবে) -->
-    <div class="bg-teal-900 text-white text-xs py-2 px-4 md:px-8">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
-            <!-- Left Info -->
-            <div class="flex flex-wrap items-center justify-center md:justify-start gap-4">
-                <a href="mailto:info@rydsn.org" class="hover:underline flex items-center gap-1">
-                    <i class="fa-solid fa-envelope text-teal-300"></i> info@rydsn.org
+    <!-- 0. Top Contact Bar (Email, Phone, Location, Social Icons) -->
+    <div class="bg-brand-dark text-slate-300 text-xs py-2.5 px-4 border-b border-slate-800">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
+            <!-- Contact Info -->
+            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4">
+                <a href="mailto:official.rydsn@gmail.com" class="hover:text-brand-amber transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-envelope text-brand-accent"></i> official.rydsn@gmail.com
                 </a>
-                <a href="tel:+8801234567890" class="hover:underline flex items-center gap-1">
-                    <i class="fa-solid fa-phone text-teal-300"></i> +880 1234 567890
+                <a href="tel:+8801234567890" class="hover:text-brand-amber transition flex items-center gap-1.5">
+                    <i class="fa-solid fa-phone text-brand-accent"></i> +880 1234 567890
                 </a>
-                <span class="hidden sm:flex items-center gap-1 text-slate-300">
-                    <i class="fa-solid fa-location-dot text-teal-300"></i> Cox's Bazar, Bangladesh
+                <span class="flex items-center gap-1.5 text-slate-400">
+                    <i class="fa-solid fa-location-dot text-brand-accent"></i> Ukhiya, Cox's Bazar, Bangladesh
                 </span>
             </div>
-            <!-- Social Links -->
-            <div class="flex items-center space-x-3">
-                <a href="#" class="hover:text-teal-300 transition"><i class="fa-brands fa-facebook-f"></i></a>
-                <a href="#" class="hover:text-teal-300 transition"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="#" class="hover:text-teal-300 transition"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#" class="hover:text-teal-300 transition"><i class="fa-brands fa-linkedin-in"></i></a>
+            <!-- Social Icons & WhatsApp -->
+            <div class="flex items-center space-x-3 text-sm">
+                <a href="https://wa.me/8801234567890" target="_blank" title="WhatsApp" class="hover:text-green-400 transition"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="#" target="_blank" title="Facebook" class="hover:text-blue-400 transition"><i class="fa-brands fa-facebook"></i></a>
+                <a href="#" target="_blank" title="Twitter" class="hover:text-sky-400 transition"><i class="fa-brands fa-twitter"></i></a>
+                <a href="#" target="_blank" title="LinkedIn" class="hover:text-blue-500 transition"><i class="fa-brands fa-linkedin"></i></a>
             </div>
         </div>
     </div>
 
-    <!-- 2. MAIN NAVIGATION HEADER (Top Contact Bar-এর ঠিক নিচে থাকবে) -->
-    <header class="bg-white shadow-sm border-b border-slate-200 sticky top-0 z-50">
-        <div class="max-w-7xl mx-auto px-4 md:px-8 py-3 flex justify-between items-center">
-            <!-- Logo & Title -->
-            <a href="#" class="flex items-center space-x-3">
-                <img src="FB_IMG_1789899462416.jpg" alt="RYDSN Logo" class="w-10 h-10 object-contain rounded-full" onerror="this.src='https://via.placeholder.com/40?text=RYDSN'">
-                <span class="text-xl font-bold text-teal-800 tracking-wide">RYDSN</span>
-            </a>
-
-            <!-- Desktop Menu Links -->
-            <nav class="hidden md:flex items-center space-x-6 text-sm font-semibold text-slate-700">
-                <a href="#about" class="hover:text-teal-700 transition">About Us</a>
-                <a href="#programs" class="hover:text-teal-700 transition">Programs</a>
-                <a href="#impact" class="hover:text-teal-700 transition">Our Impact</a>
-                <a href="#updates" class="hover:text-teal-700 transition">News & Updates</a>
-                <a href="#contact" class="hover:text-teal-700 transition">Contact</a>
-            </nav>
-
-            <!-- Call to Action Button -->
-            <div class="flex items-center space-x-3">
-                <a href="#contact" class="bg-teal-700 hover:bg-teal-800 text-white text-sm font-semibold px-4 py-2 rounded-lg transition shadow-sm">
-                    Get Involved
+    <!-- 1. Navigation Header -->
+    <nav class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-200/60">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo & Brand Name -->
+                <a href="#" class="flex items-center space-x-3">
+                    <img src="FB_IMG_1789899462416.jpg" alt="RYDSN Logo" class="w-12 h-12 object-contain rounded-full border-2 border-brand-accent/30 shadow-sm" onerror="this.src='https://via.placeholder.com/48?text=RYDSN'">
+                    <div>
+                        <span class="text-base sm:text-lg font-bold text-brand-dark block leading-tight">Rohingya Youth Development Society Network</span>
+                        <span class="text-xs text-brand-accent font-semibold tracking-wide">Empowering Youth • Building Resilience</span>
+                    </div>
                 </a>
-            </div>
-        </div>
-    </header>
 
-    <!-- MAIN HERO & CONTENT SECTION -->
-    <main class="flex-grow">
-        <!-- Hero Banner -->
-        <section class="bg-gradient-to-r from-teal-900 to-slate-900 text-white py-16 px-4 md:px-8 text-center">
-            <div class="max-w-4xl mx-auto space-y-4">
-                <span class="inline-block bg-teal-800/80 text-teal-200 text-xs font-bold uppercase px-3 py-1 rounded-full tracking-wider">
-                    Empowering Youth • Building Resilience • Creating Opportunities
-                </span>
-                <h1 class="text-3xl md:text-5xl font-extrabold leading-tight">
-                    Rohingya Youth Development Society Network (RYDSN)
-                </h1>
-                <p class="text-slate-300 text-sm md:text-base max-w-2xl mx-auto">
-                    A youth-led organization committed to empowering Rohingya young people and communities through education, skills development, leadership, protection, advocacy, and community-based initiatives.
-                </p>
-                <div class="pt-4 flex justify-center gap-4">
-                    <a href="#contact" class="bg-teal-600 hover:bg-teal-700 text-white font-semibold px-6 py-2.5 rounded-lg transition">Get Involved</a>
-                    <a href="#about" class="bg-slate-800 hover:bg-slate-700 border border-slate-600 text-white font-semibold px-6 py-2.5 rounded-lg transition">Learn More</a>
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-5 text-sm font-semibold text-slate-700">
+                    <a href="#about" class="hover:text-brand-accent transition">About Us</a>
+                    <a href="#objectives" class="hover:text-brand-accent transition">Objectives</a>
+                    <a href="#values" class="hover:text-brand-accent transition">Core Values</a>
+                    <a href="#programs" class="hover:text-brand-accent transition">Programs</a>
+                    <a href="#approach" class="hover:text-brand-accent transition">Our Approach</a>
+                    <a href="#news" class="hover:text-brand-accent transition">News & Updates</a>
+                    <a href="#team" class="hover:text-brand-accent transition">Leadership</a>
+                    <a href="#faq" class="hover:text-brand-accent transition">FAQ</a>
+                    <a href="#contact" class="bg-brand-primary text-white px-4 py-2 rounded-xl hover:bg-brand-dark shadow-md transition">Get Involved</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button id="mobile-menu-btn" type="button" class="text-slate-700 focus:outline-none p-2">
+                        <i id="menu-icon" class="fa-solid fa-bars text-2xl"></i>
+                    </button>
                 </div>
             </div>
-        </section>
+        </div>
 
-        <!-- 3. CONTACT US SECTION (ওয়েবসাইটের নির্দিষ্ট ফর্ম অংশ) -->
-        <section id="contact" class="py-12 px-4 md:px-8 max-w-3xl mx-auto">
-            <div class="bg-white p-6 md:p-8 rounded-2xl shadow-md border border-slate-200">
-                <h2 class="text-2xl font-bold text-slate-900 text-center mb-6">Contact Us</h2>
-                <form id="public-contact-form" class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-semibold text-slate-700 mb-1">Full Name</label>
-                        <input type="text" placeholder="Your Name" required class="w-full p-3 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-teal-600 text-sm">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold text-slate-700 mb-1">Email Address</label>
-                        <input type="email" placeholder="email@example.com" required class="w-full p-3 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-teal-600 text-sm">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold text-slate-700 mb-1">Subject</label>
-                        <input type="text" placeholder="e.g. Volunteer Query, Partnership" required class="w-full p-3 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-teal-600 text-sm">
-                    </div>
-                    <div>
-                        <label class="block text-sm font-semibold text-slate-700 mb-1">Message</label>
-                        <textarea rows="4" placeholder="Write your message here..." required class="w-full p-3 border border-slate-300 rounded-lg outline-none focus:ring-2 focus:ring-teal-600 text-sm"></textarea>
-                    </div>
-                    <button type="submit" class="w-full bg-teal-700 hover:bg-teal-800 text-white font-bold py-3 rounded-lg transition shadow-sm">
-                        Send Message
-                    </button>
-                </form>
-            </div>
-        </section>
-    </main>
+        <!-- Mobile Navigation Menu -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-2 shadow-lg">
+            <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light">About Us</a>
+            <a href="#objectives" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light">Objectives</a>
+            <a href="#values" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light">Core Values</a>
+            <a href="#programs" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light">Programs</a>
+            <a href="#approach" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light">Our Approach</a>
+            <a href="#news" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light">News & Updates</a>
+            <a href="#team" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light">Leadership</a>
+            <a href="#faq" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light">FAQ</a>
+            <a href="#contact" class="mobile-nav-link block text-center bg-brand-primary text-white px-4 py-3 rounded-xl font-bold mt-2">Get Involved</a>
+        </div>
+    </nav>
 
-    <!-- FOOTER -->
-    <footer class="bg-slate-900 text-white pt-10 pb-6 border-t border-slate-800">
-        <div class="max-w-7xl mx-auto px-4 md:px-8 space-y-6">
-            <div class="text-center space-y-2">
-                <h3 class="text-lg font-bold">Rohingya Youth Development Society Network (RYDSN)</h3>
-                <p class="text-xs text-teal-400">Empowering Youth • Building Resilience • Creating Opportunities</p>
+    <!-- Hero Section -->
+    <section class="relative py-24 md:py-32 bg-gradient-to-br from-brand-dark via-[#003845] to-brand-primary text-white overflow-hidden">
+        <div class="relative max-w-5xl mx-auto px-4 text-center z-10">
+            <span class="bg-brand-accent/20 text-teal-200 text-xs sm:text-sm font-semibold px-4 py-1.5 rounded-full border border-brand-accent/30 inline-block mb-6 uppercase tracking-widest">
+                Empowering Youth • Building Resilience • Creating Opportunities
+            </span>
+            <h1 class="text-3xl sm:text-5xl md:text-6xl font-extrabold mb-6 leading-tight">
+                Rohingya Youth Development Society Network <br><span class="text-brand-amber">(RYDSN)</span>
+            </h1>
+            <p class="text-base md:text-lg text-slate-200 max-w-3xl mx-auto mb-8 leading-relaxed">
+                A youth-led organization committed to empowering Rohingya young people and communities through education, skills development, leadership, protection, advocacy, and community-based initiatives.
+            </p>
+            <p class="text-sm md:text-base text-brand-accent font-medium max-w-2xl mx-auto mb-10">
+                Our goal is to support young people to become confident, skilled, responsible, and active contributors to their communities and to create opportunities for a safer, more inclusive, and hopeful future.
+            </p>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="#about" class="bg-brand-amber text-brand-dark font-bold px-7 py-3.5 rounded-xl shadow-lg hover:bg-amber-400 transition">Learn About RYDSN</a>
+                <a href="#contact" class="bg-white/10 backdrop-blur-md text-white font-semibold px-7 py-3.5 rounded-xl border border-white/20 hover:bg-white/20 transition">Support Our Work</a>
             </div>
+        </div>
+    </section>
+
+    <!-- 15 & 1. Introduction & About Us -->
+    <section id="about" class="py-20 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 space-y-12">
             
-            <div class="flex flex-wrap justify-center gap-6 text-xs text-slate-400 font-medium">
-                <a href="#about" class="hover:text-white transition">About Us</a>
-                <a href="#programs" class="hover:text-white transition">Programs</a>
-                <a href="#impact" class="hover:text-white transition">Our Impact</a>
-                <a href="#updates" class="hover:text-white transition">News & Updates</a>
-                <a href="#contact" class="hover:text-white transition">Get Involved</a>
-                <a href="#contact" class="hover:text-white transition">Contact</a>
+            <div class="text-center max-w-3xl mx-auto">
+                <h2 class="text-3xl font-extrabold text-brand-dark mb-4">1. Introduction & About Us</h2>
+                <p class="text-slate-600">
+                    Rohingya Youth Development Society Network (RYDSN) is a community-focused youth network working to strengthen the capacity, participation, and leadership of Rohingya youth. RYDSN believes that young people are an important source of positive change.
+                </p>
             </div>
 
-            <div class="border-t border-slate-800 pt-4 text-center text-xs text-slate-500">
-                © 2026 Rohingya Youth Development Society Network (RYDSN). All rights reserved.
+            <!-- Who We Are / What We Do / What We Believe -->
+            <div class="grid md:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-bold text-brand-primary mb-2"><i class="fa-solid fa-users text-brand-accent mr-2"></i> Who We Are</h3>
+                    <p class="text-slate-600 text-sm">RYDSN is a youth-focused community network dedicated to strengthening the capacity and participation of Rohingya youth.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-bold text-brand-primary mb-2"><i class="fa-solid fa-hands-holding-child text-brand-accent mr-2"></i> What We Do</h3>
+                    <p class="text-slate-600 text-sm">We work across areas including education, youth leadership, skills development, protection awareness, advocacy, community engagement, and social inclusion.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-xl font-bold text-brand-primary mb-2"><i class="fa-solid fa-heart text-brand-accent mr-2"></i> What We Believe</h3>
+                    <p class="text-slate-600 text-sm">We believe that every young person deserves the opportunity to learn, develop their potential, participate meaningfully, and contribute to a better future.</p>
+                </div>
             </div>
+
+            <!-- 2 & 3. Mission & Vision -->
+            <div class="grid md:grid-cols-2 gap-8 pt-6">
+                <!-- Mission -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="w-14 h-14 bg-teal-50 text-brand-accent rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-bullseye"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-dark mb-3">2. Our Mission</h3>
+                    <p class="text-slate-600 leading-relaxed font-medium">
+                        “To empower Rohingya youth through education, skills development, leadership, protection, advocacy, and meaningful community participation.”
+                    </p>
+                    <p class="text-slate-500 text-sm mt-3">
+                        RYDSN works to create opportunities for young people to strengthen their capacities, express their voices, develop leadership skills, and contribute positively to their communities.
+                    </p>
+                </div>
+                <!-- Vision -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border border-slate-200">
+                    <div class="w-14 h-14 bg-amber-50 text-brand-amber rounded-2xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-dark mb-3">3. Our Vision</h3>
+                    <p class="text-slate-600 leading-relaxed font-medium">
+                        “A safe, empowered, educated, and resilient Rohingya community where every young person has the opportunity to learn, lead, participate, and build a better future.”
+                    </p>
+                    <p class="text-slate-500 text-sm mt-3">
+                        RYDSN envisions a future where Rohingya youth are recognized as valuable members of society and are able to participate meaningfully in decisions that affect their lives.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 4. Our Objectives -->
+    <section id="objectives" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl font-extrabold text-brand-dark">4. Our Key Objectives</h2>
+                <p class="text-slate-600 mt-2">What RYDSN aims to achieve in our community</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="flex items-start space-x-4 p-5 bg-slate-50 rounded-2xl border border-slate-200/60">
+                    <i class="fa-solid fa-circle-check text-brand-accent text-xl mt-1"></i>
+                    <span class="text-slate-700 font-medium">Promote education and lifelong learning opportunities for youth.</span>
+                </div>
+                <div class="flex items-start space-x-4 p-5 bg-slate-50 rounded-2xl border border-slate-200/60">
+                    <i class="fa-solid fa-circle-check text-brand-accent text-xl mt-1"></i>
+                    <span class="text-slate-700 font-medium">Develop leadership and life skills among young people.</span>
+                </div>
+                <div class="flex items-start space-x-4 p-5 bg-slate-50 rounded-2xl border border-slate-200/60">
+                    <i class="fa-solid fa-circle-check text-brand-accent text-xl mt-1"></i>
+                    <span class="text-slate-700 font-medium">Increase youth participation in community decision-making.</span>
+                </div>
+                <div class="flex items-start space-x-4 p-5 bg-slate-50 rounded-2xl border border-slate-200/60">
+                    <i class="fa-solid fa-circle-check text-brand-accent text-xl mt-1"></i>
+                    <span class="text-slate-700 font-medium">Promote protection, dignity, inclusion, and equal opportunities.</span>
+                </div>
+                <div class="flex items-start space-x-4 p-5 bg-slate-50 rounded-2xl border border-slate-200/60">
+                    <i class="fa-solid fa-circle-check text-brand-accent text-xl mt-1"></i>
+                    <span class="text-slate-700 font-medium">Support youth-led community initiatives.</span>
+                </div>
+                <div class="flex items-start space-x-4 p-5 bg-slate-50 rounded-2xl border border-slate-200/60">
+                    <i class="fa-solid fa-circle-check text-brand-accent text-xl mt-1"></i>
+                    <span class="text-slate-700 font-medium">Strengthen awareness of rights and responsibilities.</span>
+                </div>
+                <div class="flex items-start space-x-4 p-5 bg-slate-50 rounded-2xl border border-slate-200/60">
+                    <i class="fa-solid fa-circle-check text-brand-accent text-xl mt-1"></i>
+                    <span class="text-slate-700 font-medium">Encourage peaceful coexistence and community solidarity.</span>
+                </div>
+                <div class="flex items-start space-x-4 p-5 bg-slate-50 rounded-2xl border border-slate-200/60">
+                    <i class="fa-solid fa-circle-check text-brand-accent text-xl mt-1"></i>
+                    <span class="text-slate-700 font-medium">Promote skills development and livelihood-related opportunities.</span>
+                </div>
+                <div class="flex items-start space-x-4 p-5 bg-slate-50 rounded-2xl border border-slate-200/60">
+                    <i class="fa-solid fa-circle-check text-brand-accent text-xl mt-1"></i>
+                    <span class="text-slate-700 font-medium">Build partnerships with local, national, and international organizations.</span>
+                </div>
+                <div class="flex items-start space-x-4 p-5 bg-slate-50 rounded-2xl border border-slate-200/60">
+                    <i class="fa-solid fa-circle-check text-brand-accent text-xl mt-1"></i>
+                    <span class="text-slate-700 font-medium">Create platforms where Rohingya youth can share their ideas, concerns, and solutions.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Our Core Values -->
+    <section id="values" class="py-20 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl font-extrabold text-brand-dark">5. Our Core Values</h2>
+                <p class="text-slate-600 mt-2">Guiding principles behind everything we do</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-lg font-bold text-brand-primary mb-2"><i class="fa-solid fa-hand-holding-heart text-brand-accent mr-2"></i> Inclusion</h3>
+                    <p class="text-slate-600 text-sm">Everyone deserves to be respected and included regardless of background, gender, age, ability, or social status.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-lg font-bold text-brand-primary mb-2"><i class="fa-solid fa-user-ninja text-brand-accent mr-2"></i> Youth Leadership</h3>
+                    <p class="text-slate-600 text-sm">Young people should have meaningful opportunities to lead, participate, and contribute to decisions affecting their communities.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-lg font-bold text-brand-primary mb-2"><i class="fa-solid fa-scale-balanced text-brand-accent mr-2"></i> Dignity</h3>
+                    <p class="text-slate-600 text-sm">We respect the dignity, rights, and voices of every individual.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-lg font-bold text-brand-primary mb-2"><i class="fa-solid fa-shield-halved text-brand-accent mr-2"></i> Accountability</h3>
+                    <p class="text-slate-600 text-sm">We are committed to responsible, transparent, and ethical work.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-lg font-bold text-brand-primary mb-2"><i class="fa-solid fa-equals text-brand-accent mr-2"></i> Equality</h3>
+                    <p class="text-slate-600 text-sm">We promote equal opportunities and fair participation for all.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
+                    <h3 class="text-lg font-bold text-brand-primary mb-2"><i class="fa-solid fa-comments text-brand-accent mr-2"></i> Respect</h3>
+                    <p class="text-slate-600 text-sm">We value diversity, dialogue, cooperation, and mutual respect.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 sm:col-span-2 lg:col-span-3">
+                    <h3 class="text-lg font-bold text-brand-primary mb-2"><i class="fa-solid fa-people-roof text-brand-accent mr-2"></i> Community Ownership</h3>
+                    <p class="text-slate-600 text-sm">We encourage communities and young people to take an active role in identifying challenges and developing solutions.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6. Our Key Programs -->
+    <section id="programs" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl font-extrabold text-brand-dark">6. Our Key Programs</h2>
+                <p class="text-slate-600 mt-2">Comprehensive thematic areas of our work</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Program 1 -->
+                <div class="bg-brand-light p-6 rounded-2xl border border-slate-200">
+                    <h3 class="text-xl font-bold text-brand-dark mb-3"><i class="fa-solid fa-graduation-cap text-brand-accent mr-2"></i> Education & Learning</h3>
+                    <p class="text-slate-600 text-sm mb-4">Access to educational opportunities, knowledge, confidence, and learning skills.</p>
+                    <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-4">
+                        <li>Educational awareness & Learning support</li>
+                        <li>Youth literacy initiatives & Digital learning</li>
+                        <li>Educational workshops, Mentoring & peer learning</li>
+                    </ul>
+                </div>
+                <!-- Program 2 -->
+                <div class="bg-brand-light p-6 rounded-2xl border border-slate-200">
+                    <h3 class="text-xl font-bold text-brand-dark mb-3"><i class="fa-solid fa-users-gear text-brand-accent mr-2"></i> Youth Leadership</h3>
+                    <p class="text-slate-600 text-sm mb-4">Leadership, communication, teamwork, and problem-solving skills development.</p>
+                    <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-4">
+                        <li>Leadership training & Youth workshops</li>
+                        <li>Public speaking & Team-building activities</li>
+                        <li>Peer-to-peer learning & Youth-led initiatives</li>
+                    </ul>
+                </div>
+                <!-- Program 3 -->
+                <div class="bg-brand-light p-6 rounded-2xl border border-slate-200">
+                    <h3 class="text-xl font-bold text-brand-dark mb-3"><i class="fa-solid fa-laptop-code text-brand-accent mr-2"></i> Skills Development</h3>
+                    <p class="text-slate-600 text-sm mb-4">Practical skills to become confident and prepared for future opportunities.</p>
+                    <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-4">
+                        <li>Digital skills & Communication skills</li>
+                        <li>Entrepreneurship awareness & Vocational skills</li>
+                        <li>Career preparation & Financial literacy</li>
+                    </ul>
+                </div>
+                <!-- Program 4 -->
+                <div class="bg-brand-light p-6 rounded-2xl border border-slate-200">
+                    <h3 class="text-xl font-bold text-brand-dark mb-3"><i class="fa-solid fa-shield-cat text-brand-accent mr-2"></i> Protection & Well-Being</h3>
+                    <p class="text-slate-600 text-sm mb-4">Awareness of safety, dignity, rights, and protection for vulnerable youth.</p>
+                    <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-4">
+                        <li>Community awareness on protection & safety</li>
+                        <li>Referral approaches to protection services</li>
+                    </ul>
+                </div>
+                <!-- Program 5 -->
+                <div class="bg-brand-light p-6 rounded-2xl border border-slate-200">
+                    <h3 class="text-xl font-bold text-brand-dark mb-3"><i class="fa-solid fa-bullhorn text-brand-accent mr-2"></i> Youth Advocacy</h3>
+                    <p class="text-slate-600 text-sm mb-4">Platforms for youth to communicate priorities, ideas, and recommendations.</p>
+                    <div class="bg-white p-3 rounded-xl text-xs font-semibold text-brand-primary text-center mt-2 border border-slate-200">
+                        Approach: Listen → Understand → Organize → Advocate → Create Change
+                    </div>
+                </div>
+                <!-- Program 6 & 7 -->
+                <div class="bg-brand-light p-6 rounded-2xl border border-slate-200">
+                    <h3 class="text-xl font-bold text-brand-dark mb-3"><i class="fa-solid fa-dove text-brand-accent mr-2"></i> Community & Peace</h3>
+                    <p class="text-slate-600 text-sm mb-4">Peace, social cohesion, inclusion, and active community participation.</p>
+                    <ul class="text-xs text-slate-600 space-y-1.5 list-disc pl-4">
+                        <li>Strengthening resilience & Volunteering</li>
+                        <li>Peaceful relationships & Social cohesion</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7 & 8. Why Youth Matter & Our Approach -->
+    <section id="approach" class="py-20 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4 space-y-12">
+            
+            <div class="bg-brand-dark text-white p-8 md:p-12 rounded-3xl text-center space-y-4">
+                <h2 class="text-3xl font-extrabold">7. Why Youth Matter</h2>
+                <blockquote class="text-xl italic text-brand-amber font-semibold">“Nothing about youth without youth.”</blockquote>
+                <p class="text-slate-300 max-w-3xl mx-auto text-sm md:text-base">
+                    Young people are not only beneficiaries of development—they are partners, leaders, innovators, and agents of change. When youth have access to education, skills, information, safe spaces, and meaningful participation, they can make valuable contributions to their communities.
+                </p>
+            </div>
+
+            <div>
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-extrabold text-brand-dark">8. Our Approach</h2>
+                    <p class="text-slate-600 mt-2">A youth-centered, community-based, inclusive, and participatory methodology</p>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-6 gap-4 text-center">
+                    <div class="bg-white p-4 rounded-xl border border-slate-200"><span class="font-bold text-brand-primary block text-lg">Listen</span><span class="text-xs text-slate-500">Understand priorities</span></div>
+                    <div class="bg-white p-4 rounded-xl border border-slate-200"><span class="font-bold text-brand-primary block text-lg">Engage</span><span class="text-xs text-slate-500">Meaningful participation</span></div>
+                    <div class="bg-white p-4 rounded-xl border border-slate-200"><span class="font-bold text-brand-primary block text-lg">Empower</span><span class="text-xs text-slate-500">Build skills & leadership</span></div>
+                    <div class="bg-white p-4 rounded-xl border border-slate-200"><span class="font-bold text-brand-primary block text-lg">Connect</span><span class="text-xs text-slate-500">Build stakeholder bridges</span></div>
+                    <div class="bg-white p-4 rounded-xl border border-slate-200"><span class="font-bold text-brand-primary block text-lg">Act</span><span class="text-xs text-slate-500">Turn ideas into action</span></div>
+                    <div class="bg-white p-4 rounded-xl border border-slate-200"><span class="font-bold text-brand-primary block text-lg">Learn</span><span class="text-xs text-slate-500">Continuous improvement</span></div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 9 & 10. Partnerships & Our Impact -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12">
+            <!-- 9. Partnerships -->
+            <div>
+                <h2 class="text-3xl font-extrabold text-brand-dark mb-6">9. Partnerships</h2>
+                <p class="text-slate-600 mb-6 text-sm">Sustainable development requires collaboration. RYDSN seeks to work with:</p>
+                <div class="grid grid-cols-2 gap-3 text-xs font-semibold text-slate-700">
+                    <span class="bg-slate-100 p-3 rounded-xl"><i class="fa-solid fa-handshake text-brand-accent mr-2"></i> Youth Groups</span>
+                    <span class="bg-slate-100 p-3 rounded-xl"><i class="fa-solid fa-building text-brand-accent mr-2"></i> CBOs & NGOs</span>
+                    <span class="bg-slate-100 p-3 rounded-xl"><i class="fa-solid fa-globe text-brand-accent mr-2"></i> Humanitarian Actors</span>
+                    <span class="bg-slate-100 p-3 rounded-xl"><i class="fa-solid fa-school text-brand-accent mr-2"></i> Educational Institutes</span>
+                    <span class="bg-slate-100 p-3 rounded-xl"><i class="fa-solid fa-landmark text-brand-accent mr-2"></i> Local Authorities</span>
+                    <span class="bg-slate-100 p-3 rounded-xl"><i class="fa-solid fa-coins text-brand-accent mr-2"></i> Donors & Partners</span>
+                </div>
+            </div>
+
+            <!-- 10. Our Impact -->
+            <div>
+                <h2 class="text-3xl font-extrabold text-brand-dark mb-6">10. Our Impact</h2>
+                <p class="text-slate-600 mb-6 text-sm">RYDSN aims to contribute to long-term community transformation:</p>
+                <ul class="space-y-3 text-sm text-slate-700">
+                    <li class="flex items-center space-x-3"><i class="fa-solid fa-chart-line text-brand-accent"></i><span>More empowered and confident youth</span></li>
+                    <li class="flex items-center space-x-3"><i class="fa-solid fa-book-open text-brand-accent"></i><span>Increased access to learning opportunities</span></li>
+                    <li class="flex items-center space-x-3"><i class="fa-solid fa-award text-brand-accent"></i><span>Stronger youth leadership & capacity</span></li>
+                    <li class="flex items-center space-x-3"><i class="fa-solid fa-people-group text-brand-accent"></i><span>Greater youth participation & community engagement</span></li>
+                    <li class="flex items-center space-x-3"><i class="fa-solid fa-shield text-brand-accent"></i><span>Increased awareness of protection and rights</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Get Involved -->
+    <section class="py-16 bg-brand-primary text-white">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-extrabold mb-4">11. Get Involved</h2>
+            <p class="text-slate-200 max-w-2xl mx-auto mb-10 text-sm">There are many ways to support the work of RYDSN.</p>
+            
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-left">
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10">
+                    <h3 class="font-bold text-lg text-brand-amber mb-2">Become a Volunteer</h3>
+                    <p class="text-xs text-slate-200">Share your time, skills, and ideas to support youth initiatives.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10">
+                    <h3 class="font-bold text-lg text-brand-amber mb-2">Become a Partner</h3>
+                    <p class="text-xs text-slate-200">Work with us to develop programs and opportunities for youth.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10">
+                    <h3 class="font-bold text-lg text-brand-amber mb-2">Support Programs</h3>
+                    <p class="text-xs text-slate-200">Support initiatives contributing to youth empowerment.</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/10">
+                    <h3 class="font-bold text-lg text-brand-amber mb-2">Share Your Ideas</h3>
+                    <p class="text-xs text-slate-200">We welcome recommendations from community members.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12 & 13. News & Updates / Success Stories -->
+    <section id="news" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 space-y-12">
+            <div class="text-center">
+                <h2 class="text-3xl font-extrabold text-brand-dark">12. News & Updates & 13. Success Stories</h2>
+                <p class="text-slate-600 mt-2">Latest updates, field events, and youth achievement stories</p>
+            </div>
+            <div id="news-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="col-span-full text-center text-slate-400 py-12">Loading field updates and success stories...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Team Section -->
+    <section id="team" class="py-20 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-14">
+                <h2 class="text-3xl font-extrabold text-brand-dark">Leadership Team</h2>
+                <p class="text-slate-600 mt-2">Dedicated individuals guiding the vision and operations of RYDSN</p>
+            </div>
+            <div id="team-container" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="col-span-full text-center text-slate-400 py-12">Loading leadership team...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. Frequently Asked Questions (FAQ) -->
+    <section id="faq" class="py-20 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-brand-dark">14. Frequently Asked Questions</h2>
+            </div>
+            <div class="space-y-4">
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <h3 class="font-bold text-brand-dark mb-2">What is RYDSN?</h3>
+                    <p class="text-slate-600 text-sm">RYDSN stands for Rohingya Youth Development Society Network. It is a youth-focused network working to empower Rohingya youth and support positive community development.</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <h3 class="font-bold text-brand-dark mb-2">Who can participate?</h3>
+                    <p class="text-slate-600 text-sm">Participation depends on the specific program or activity. RYDSN seeks to provide inclusive opportunities for young people and community members.</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <h3 class="font-bold text-brand-dark mb-2">How can I volunteer?</h3>
+                    <p class="text-slate-600 text-sm">You can contact RYDSN through the contact information provided on our website and ask about current volunteer opportunities.</p>
+                </div>
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200">
+                    <h3 class="font-bold text-brand-dark mb-2">How can an organization partner with RYDSN?</h3>
+                    <p class="text-slate-600 text-sm">Organizations interested in collaboration can contact RYDSN directly via email or phone to discuss potential areas of partnership.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 16. Contact Us Section -->
+    <section id="contact" class="py-20 bg-brand-light">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-brand-dark">16. Contact Us</h2>
+                <p class="text-slate-600 mt-2">Connect With RYDSN — We welcome communication from youth, partners, and supporters.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 items-start">
+                <!-- Contact Details -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200 space-y-6">
+                    <h3 class="text-xl font-bold text-brand-dark">Rohingya Youth Development Society Network (RYDSN)</h3>
+                    
+                    <div class="space-y-4 text-sm text-slate-700">
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-location-dot text-brand-accent text-lg w-6"></i>
+                            <span>Ukhiya, Cox's Bazar, Bangladesh</span>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-envelope text-brand-accent text-lg w-6"></i>
+                            <a href="mailto:official.rydsn@gmail.com" class="hover:underline">official.rydsn@gmail.com</a>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-solid fa-phone text-brand-accent text-lg w-6"></i>
+                            <a href="tel:+8801234567890" class="hover:underline">+880 1234 567890</a>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <i class="fa-brands fa-whatsapp text-green-600 text-lg w-6"></i>
+                            <a href="https://wa.me/8801234567890" target="_blank" class="hover:underline">WhatsApp Support</a>
+                        </div>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="pt-4 border-t border-slate-100">
+                        <p class="text-xs font-bold text-slate-500 uppercase mb-3">Follow Us</p>
+                        <div class="flex space-x-4 text-xl text-brand-primary">
+                            <a href="#" class="hover:text-brand-accent"><i class="fa-brands fa-facebook"></i></a>
+                            <a href="#" class="hover:text-brand-accent"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#" class="hover:text-brand-accent"><i class="fa-brands fa-linkedin"></i></a>
+                            <a href="https://wa.me/8801234567890" target="_blank" class="hover:text-green-600"><i class="fa-brands fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Send Message Form -->
+                <div class="bg-white p-8 rounded-2xl border border-slate-200">
+                    <h3 class="text-xl font-bold text-brand-dark mb-6">Send Us a Message</h3>
+                    <form id="contact-form" class="space-y-4">
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 uppercase mb-1">Name</label>
+                            <input type="text" id="sender-name" placeholder="Your Full Name" required class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-brand-accent">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 uppercase mb-1">Email</label>
+                            <input type="email" id="sender-email" placeholder="Your Email Address" required class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-brand-accent">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 uppercase mb-1">Subject</label>
+                            <input type="text" id="sender-subject" placeholder="Subject" required class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-brand-accent">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-slate-600 uppercase mb-1">Message</label>
+                            <textarea id="sender-message" rows="4" placeholder="Write your message here..." required class="w-full px-4 py-3 rounded-xl border border-slate-300 text-sm outline-none focus:ring-2 focus:ring-brand-accent"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-brand-primary text-white font-bold py-3.5 rounded-xl hover:bg-brand-dark transition shadow-md">Send Message</button>
+                    </form>
+                    <div id="form-status" class="mt-4 text-center text-sm font-semibold"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-brand-dark text-slate-400 py-10 text-center text-sm border-t border-slate-800 space-y-4">
+        <div class="max-w-7xl mx-auto px-4">
+            <h3 class="text-white font-bold text-lg">Rohingya Youth Development Society Network (RYDSN)</h3>
+            <p class="text-xs text-brand-accent">Empowering Youth • Building Resilience • Creating Opportunities</p>
+            
+            <div class="flex flex-wrap justify-center gap-4 text-xs pt-4 text-slate-300">
+                <a href="#about" class="hover:text-white">About Us</a> |
+                <a href="#programs" class="hover:text-white">Programs</a> |
+                <a href="#approach" class="hover:text-white">Our Impact</a> |
+                <a href="#news" class="hover:text-white">News & Updates</a> |
+                <a href="#contact" class="hover:text-white">Get Involved</a> |
+                <a href="#contact" class="hover:text-white">Contact</a>
+            </div>
+
+            <p class="pt-6 text-xs text-slate-500">&copy; 2026 Rohingya Youth Development Society Network (RYDSN). All rights reserved.</p>
+            <a href="admin.html" class="text-xs text-slate-600 hover:text-slate-400 inline-block mt-2">Admin Portal</a>
         </div>
     </footer>
 
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyB8004SuqvCgCfPZ3wLyt1azKsmCkN1cFU",
+            authDomain: "rydsn-d3d48.firebaseapp.com",
+            projectId: "rydsn-d3d48",
+            storageBucket: "rydsn-d3d48.firebasestorage.app",
+            messagingSenderId: "964619094162",
+            appId: "1:964619094162:web:ca100662bc576062f73e4b"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // Mobile Nav Toggle
+        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+            document.getElementById('mobile-menu').classList.toggle('hidden');
+        });
+
+        // Hide mobile menu on link click
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                document.getElementById('mobile-menu').classList.add('hidden');
+            });
+        });
+
+        // Fetch Field Updates & Success Stories
+        const newsContainer = document.getElementById('news-container');
+        db.collection('news').orderBy('createdAt', 'desc').onSnapshot((snapshot) => {
+            if (snapshot.empty) {
+                newsContainer.innerHTML = '<p class="col-span-full text-center text-slate-400 py-8">No field updates posted yet.</p>';
+                return;
+            }
+            let html = '';
+            snapshot.forEach((doc) => {
+                const item = doc.data();
+                const imageList = item.images && item.images.length > 0 ? item.images : (item.imageUrl ? [item.imageUrl] : []);
+                
+                let imageGalleryHtml = '';
+                if (imageList.length === 1) {
+                    imageGalleryHtml = `<img src="${imageList[0]}" alt="${item.title}" class="w-full h-48 object-cover">`;
+                } else if (imageList.length > 1) {
+                    imageGalleryHtml = `
+                        <div class="grid grid-cols-2 gap-1 p-1 bg-slate-100 max-h-56 overflow-y-auto">
+                            ${imageList.map(img => `<img src="${img}" class="w-full h-24 object-cover rounded">`).join('')}
+                        </div>
+                    `;
+                }
+
+                html += `
+                    <div class="bg-white rounded-2xl overflow-hidden border border-slate-200 shadow-sm flex flex-col hover:shadow-md transition">
+                        ${imageGalleryHtml}
+                        <div class="p-6 flex-1 flex flex-col justify-between">
+                            <div>
+                                <div class="flex justify-between items-center mb-2">
+                                    <span class="text-xs font-bold text-brand-accent uppercase tracking-wider">${item.category || 'Update'}</span>
+                                    <span class="text-xs text-slate-400">${item.date || ''}</span>
+                                </div>
+                                <h3 class="text-xl font-bold text-brand-dark mb-3">${item.title}</h3>
+                                <p class="text-slate-600 text-sm leading-relaxed mb-4">${item.details}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+            newsContainer.innerHTML = html;
+        });
+
+        // Fetch Leadership Team
+        const teamContainer = document.getElementById('team-container');
+        db.collection('team').orderBy('createdAt', 'desc').onSnapshot((snapshot) => {
+            if (snapshot.empty) {
+                teamContainer.innerHTML = '<p class="col-span-full text-center text-slate-400 py-8">No leadership members added yet.</p>';
+                return;
+            }
+            let html = '';
+            snapshot.forEach((doc) => {
+                const member = doc.data();
+                html += `
+                    <div class="bg-white p-6 rounded-2xl border border-slate-200/80 text-center shadow-sm hover:shadow-md transition">
+                        ${member.imageUrl ? 
+                            `<img src="${member.imageUrl}" class="w-20 h-20 rounded-full mx-auto object-cover mb-4 border-2 border-brand-accent">` : 
+                            `<div class="w-20 h-20 bg-brand-primary/10 rounded-full mx-auto flex items-center justify-center text-brand-primary text-2xl font-bold mb-4"><i class="fa-solid fa-user-tie"></i></div>`
+                        }
+                        <h3 class="text-xl font-bold text-brand-dark">${member.name}</h3>
+                        <p class="text-sm font-bold text-brand-primary mt-1">${member.role}</p>
+                        ${member.subtitle ? `<span class="text-xs font-semibold text-brand-accent uppercase tracking-wider block mb-3">${member.subtitle}</span>` : ''}
+                        ${member.bio ? `<p class="text-slate-600 text-sm leading-relaxed mb-4 mt-2">${member.bio}</p>` : ''}
+                        ${member.email ? `<a href="mailto:${member.email}" class="text-xs text-slate-500 hover:text-brand-primary"><i class="fa-regular fa-envelope mr-1"></i> ${member.email}</a>` : ''}
+                    </div>
+                `;
+            });
+            teamContainer.innerHTML = html;
+        });
+
+        // Contact Form
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const status = document.getElementById('form-status');
+            db.collection('messages').add({
+                name: document.getElementById('sender-name').value,
+                email: document.getElementById('sender-email').value,
+                subject: document.getElementById('sender-subject').value,
+                message: document.getElementById('sender-message').value,
+                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            }).then(() => {
+                status.className = "text-brand-accent font-bold";
+                status.innerText = "Thank you! Message sent successfully.";
+                document.getElementById('contact-form').reset();
+            }).catch(err => {
+                status.className = "text-red-500 font-bold";
+                status.innerText = "Error: " + err.message;
+            });
+        });
+    </script>
 </body>
 </html>
