@@ -26,31 +26,6 @@
 </head>
 <body class="bg-brand-light text-slate-800 font-sans leading-relaxed">
 
-    <!-- 0. Top Contact Bar (Email, Phone, Location, Social Icons) -->
-    <div class="bg-brand-dark text-slate-300 text-xs py-2.5 px-4 border-b border-slate-800">
-        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2">
-            <!-- Contact Info -->
-            <div class="flex flex-wrap items-center justify-center sm:justify-start gap-4">
-                <a href="mailto:official.rydsn@gmail.com" class="hover:text-brand-amber transition flex items-center gap-1.5">
-                    <i class="fa-solid fa-envelope text-brand-accent"></i> official.rydsn@gmail.com
-                </a>
-                <a href="tel:+8801234567890" class="hover:text-brand-amber transition flex items-center gap-1.5">
-                    <i class="fa-solid fa-phone text-brand-accent"></i> +880 1234 567890
-                </a>
-                <span class="flex items-center gap-1.5 text-slate-400">
-                    <i class="fa-solid fa-location-dot text-brand-accent"></i> Ukhiya, Cox's Bazar, Bangladesh
-                </span>
-            </div>
-            <!-- Social Icons & WhatsApp -->
-            <div class="flex items-center space-x-3 text-sm">
-                <a href="https://wa.me/8801234567890" target="_blank" title="WhatsApp" class="hover:text-green-400 transition"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="#" target="_blank" title="Facebook" class="hover:text-blue-400 transition"><i class="fa-brands fa-facebook"></i></a>
-                <a href="#" target="_blank" title="Twitter" class="hover:text-sky-400 transition"><i class="fa-brands fa-twitter"></i></a>
-                <a href="#" target="_blank" title="LinkedIn" class="hover:text-blue-500 transition"><i class="fa-brands fa-linkedin"></i></a>
-            </div>
-        </div>
-    </div>
-
     <!-- 1. Navigation Header -->
     <nav class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-slate-200/60">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -65,38 +40,32 @@
                 </a>
 
                 <!-- Desktop Menu -->
-                <div class="hidden lg:flex items-center space-x-5 text-sm font-semibold text-slate-700">
+                <div class="hidden lg:flex items-center space-x-6 text-sm font-semibold text-slate-700">
                     <a href="#about" class="hover:text-brand-accent transition">About Us</a>
-                    <a href="#objectives" class="hover:text-brand-accent transition">Objectives</a>
-                    <a href="#values" class="hover:text-brand-accent transition">Core Values</a>
                     <a href="#programs" class="hover:text-brand-accent transition">Programs</a>
-                    <a href="#approach" class="hover:text-brand-accent transition">Our Approach</a>
+                    <a href="#approach" class="hover:text-brand-accent transition">Our Impact</a>
                     <a href="#news" class="hover:text-brand-accent transition">News & Updates</a>
-                    <a href="#team" class="hover:text-brand-accent transition">Leadership</a>
-                    <a href="#faq" class="hover:text-brand-accent transition">FAQ</a>
-                    <a href="#contact" class="bg-brand-primary text-white px-4 py-2 rounded-xl hover:bg-brand-dark shadow-md transition">Get Involved</a>
+                    <a href="#contact" class="hover:text-brand-accent transition">Contact</a>
+                    <a href="#contact" class="bg-brand-primary text-white px-5 py-2.5 rounded-xl hover:bg-brand-dark shadow-md transition">Get Involved</a>
                 </div>
 
-                <!-- Mobile Menu Button -->
+                <!-- Mobile Menu Button (Hamburger / 3-Bar) -->
                 <div class="lg:hidden flex items-center">
-                    <button id="mobile-menu-btn" type="button" class="text-slate-700 focus:outline-none p-2">
+                    <button id="mobile-menu-btn" type="button" class="text-slate-700 focus:outline-none p-2 rounded-lg hover:bg-slate-100 transition">
                         <i id="menu-icon" class="fa-solid fa-bars text-2xl"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Mobile Navigation Menu -->
+        <!-- Mobile Navigation Dropdown Menu -->
         <div id="mobile-menu" class="hidden lg:hidden bg-white border-b border-slate-200 px-4 pt-3 pb-6 space-y-2 shadow-lg">
             <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light">About Us</a>
-            <a href="#objectives" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light">Objectives</a>
-            <a href="#values" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light">Core Values</a>
             <a href="#programs" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light">Programs</a>
-            <a href="#approach" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light">Our Approach</a>
+            <a href="#approach" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light">Our Impact</a>
             <a href="#news" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light">News & Updates</a>
-            <a href="#team" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light">Leadership</a>
-            <a href="#faq" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light">FAQ</a>
-            <a href="#contact" class="mobile-nav-link block text-center bg-brand-primary text-white px-4 py-3 rounded-xl font-bold mt-2">Get Involved</a>
+            <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-lg font-semibold text-slate-700 hover:bg-brand-light">Contact</a>
+            <a href="#contact" class="mobile-nav-link block text-center bg-brand-primary text-white px-4 py-3 rounded-xl font-bold mt-2 shadow-sm">Get Involved</a>
         </div>
     </nav>
 
@@ -596,14 +565,27 @@
         const db = firebase.firestore();
 
         // Mobile Nav Toggle
-        document.getElementById('mobile-menu-btn').addEventListener('click', () => {
-            document.getElementById('mobile-menu').classList.toggle('hidden');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            }
         });
 
         // Hide mobile menu on link click
         document.querySelectorAll('.mobile-nav-link').forEach(link => {
             link.addEventListener('click', () => {
-                document.getElementById('mobile-menu').classList.add('hidden');
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
             });
         });
 
