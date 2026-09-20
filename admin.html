@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RYDSN Admin Panel</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-slate-100 min-h-screen">
+
+    <!-- Login Box -->
+    <div id="login-box" class="max-w-md mx-auto mt-20 p-8 bg-white rounded-2xl shadow-md border border-slate-200">
+        <h2 class="text-2xl font-bold text-center text-slate-900 mb-6">RYDSN Admin Login</h2>
+        <form id="login-form" class="space-y-4">
+            <input type="email" id="admin-email" placeholder="Admin Email" required class="w-full px-4 py-3 rounded-lg border border-slate-300">
+            <input type="password" id="admin-pass" placeholder="Password" required class="w-full px-4 py-3 rounded-lg border border-slate-300">
+            <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700">Login</button>
+        </form>
+        <p id="login-error" class="text-red-500 text-sm mt-3 text-center"></p>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="hidden max-w-6xl mx-auto p-6">
+        <div class="flex justify-between items-center mb-8 bg-white p-6 rounded-xl shadow-sm">
+            <h1 class="text-2xl font-bold text-slate-800">RYDSN Admin Dashboard</h1>
+            <button id="logout-btn" class="bg-red-500 text-white px-4 py-2 rounded-lg font-semibold hover:bg-red-600">Logout</button>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- Add News -->
+            <div class="bg-white p-6 rounded-xl shadow-sm">
+                <h2 class="text-xl font-bold mb-4">Post News / Announcement</h2>
+                <form id="add-news-form" class="space-y-4">
+                    <input type="text" id="news-title" placeholder="Title" required class="w-full p-3 border rounded-lg">
+                    <input type="text" id="news-category" placeholder="Category (e.g., Event, Training)" class="w-full p-3 border rounded-lg">
+                    <textarea id="news-details" rows="4" placeholder="News Details" required class="w-full p-3 border rounded-lg"></textarea>
+                    <button type="submit" class="bg-blue-600 text-white px-6 py-2.5 rounded-lg font-bold hover:bg-blue-700">Publish News</button>
+                </form>
+            </div>
+
+            <!-- Messages List -->
+            <div class="bg-white p-6 rounded-xl shadow-sm">
+                <h2 class="text-xl font-bold mb-4">Received Messages</h2>
+                <div id="messages-list" class="space-y-4 max-h-[400px] overflow-y-auto">
+                    <p class="text-slate-500">Loading messages...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+
+    <script>
+        // REPLACE WITH YOUR FIREBASE CONFIG
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const auth = firebase.auth();
+        const db = firebase.firestore();
+
+        const loginBox = document.getElementById('login-box');
+        const dashboard = document.getElementById('dashboard');
+
+        // Authentication State Check
+        auth.onAuthStateChanged((user) => {
+            if (user) {
+                loginBox.classList.add('hidden');
+                dashboard.classList.remove('hidden');
+                loadMessages();
+            } else {
+                loginBox.classList.remove('hidden');
+                dashboard.classList.add('hidden');
+            }
+        });
+
+        // Admin Login Handle
+        document.getElementById('login-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const email = document.getElementById('admin-email').value;
+            const pass = document.getElementById('admin-pass').value;
+            auth.signInWithEmailAndPassword(email, pass).catch(err => {
+                document.getElementById('login-error').innerText = err.message;
+            });
+        });
+
+        // Logout Handle
+        document.getElementById('logout-btn').addEventListener('click', () => auth.signOut());
+
+        // Add News Handle
+        document.getElementById('add-news-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            db.collection('news').add({
+                title: document.getElementById('news-title').value,
+                category: document.getElementById('news-category').value,
+                details: document.getElementById('news-details').value,
+                date: new Date().toLocaleDateString(),
+                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            }).then(() => {
+                alert('News Published Successfully!');
+                document.getElementById('add-news-form').reset();
+            });
+        });
+
+        // Load Messages Function
+        function loadMessages() {
+            const messagesList = document.getElementById('messages-list');
+            db.collection('messages').orderBy('createdAt', 'desc').onSnapshot((snapshot) => {
+                if (snapshot.empty) {
+                    messagesList.innerHTML = '<p class="text-slate-500">No messages found.</p>';
+                    return;
+                }
+                let html = '';
+                snapshot.forEach((doc) => {
+                    const msg = doc.data();
+                    html += `
+                        <div class="p-4 bg-slate-50 rounded-lg border border-slate-200">
+                            <p class="font-bold text-slate-800">${msg.name} <span class="text-xs font-normal text-slate-500">(${msg.email})</span></p>
+                            <p class="text-xs font-semibold text-blue-600 mt-1">${msg.subject}</p>
+                            <p class="text-sm text-slate-600 mt-2">${msg.message}</p>
+                        </div>
+                    `;
+                });
+                messagesList.innerHTML = html;
+            });
+        }
+    </script>
+</body>
+</html>
