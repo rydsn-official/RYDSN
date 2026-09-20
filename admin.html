@@ -59,7 +59,7 @@
                     </form>
                 </div>
 
-                <!-- Existing Activities List (Edit/Delete) -->
+                <!-- Existing Activities List -->
                 <div class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
                     <h2 class="text-lg font-bold text-slate-900 mb-4">Manage Field Activities</h2>
                     <div id="admin-news-list" class="space-y-4 max-h-[400px] overflow-y-auto pr-2">
@@ -152,6 +152,13 @@
         const auth = firebase.auth();
         const db = firebase.firestore();
 
+        // Local cache stores to safely hold data for edit/view operations
+        const cache = {
+            news: {},
+            team: {},
+            messages: {}
+        };
+
         const loginBox = document.getElementById('login-box');
         const dashboard = document.getElementById('dashboard');
 
@@ -179,10 +186,16 @@
 
         document.getElementById('logout-btn').addEventListener('click', () => auth.signOut());
 
-        // Helper Function to Parse URLs separated by spaces, commas, or line breaks
         function parseUrls(inputText) {
             if (!inputText) return [];
             return inputText.split(/[\s,]+/).map(url => url.trim()).filter(url => url.length > 0);
+        }
+
+        function escapeHTML(str) {
+            if (!str) return '';
+            return str.replace(/[&<>'"]/g, 
+                tag => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[tag] || tag)
+            );
         }
 
         // --- NEWS / ACTIVITIES MANAGEMENT ---
@@ -197,22 +210,23 @@
                 title: document.getElementById('news-title').value,
                 category: document.getElementById('news-category').value,
                 images: imageUrls,
-                imageUrl: imageUrls[0] || '', // backward compatibility
+                imageUrl: imageUrls[0] || '',
                 details: document.getElementById('news-details').value,
                 date: new Date().toLocaleDateString(),
                 createdAt: firebase.firestore.FieldValue.serverTimestamp()
             };
 
             if (newsId) {
+                delete newsData.createdAt; // Edit করার সময় মূল তৈরির সময় পরিবর্তন না করা ভালো
                 db.collection('news').doc(newsId).update(newsData).then(() => {
                     alert('Activity updated successfully!');
                     resetNewsForm();
-                });
+                }).catch(err => alert(err.message));
             } else {
                 db.collection('news').add(newsData).then(() => {
                     alert('Field update published successfully!');
                     resetNewsForm();
-                });
+                }).catch(err => alert(err.message));
             }
         });
 
@@ -234,16 +248,17 @@
                 let html = '';
                 snapshot.forEach((doc) => {
                     const data = doc.data();
+                    cache.news[doc.id] = data; // Cache values safely
                     const imgs = data.images && data.images.length ? data.images : (data.imageUrl ? [data.imageUrl] : []);
                     html += `
                         <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex justify-between items-start">
                             <div>
-                                <p class="font-bold text-slate-800 text-sm">${data.title}</p>
-                                <span class="text-xs font-semibold text-teal-600">${data.category || 'General'}</span>
+                                <p class="font-bold text-slate-800 text-sm">${escapeHTML(data.title)}</p>
+                                <span class="text-xs font-semibold text-teal-600">${escapeHTML(data.category || 'General')}</span>
                                 <p class="text-xs text-slate-500 mt-1">${imgs.length} Image(s) Attached</p>
                             </div>
                             <div class="flex space-x-2">
-                                <button onclick="editNews('${doc.id}', \`${escape(JSON.stringify(data))}\`)" class="text-blue-600 hover:text-blue-800 text-sm font-semibold"><i class="fa-solid fa-pen-to-square"></i></button>
+                                <button onclick="editNews('${doc.id}')" class="text-blue-600 hover:text-blue-800 text-sm font-semibold"><i class="fa-solid fa-pen-to-square"></i></button>
                                 <button onclick="deleteNews('${doc.id}')" class="text-red-600 hover:text-red-800 text-sm font-semibold"><i class="fa-solid fa-trash"></i></button>
                             </div>
                         </div>
@@ -253,8 +268,9 @@
             });
         }
 
-        window.editNews = function(id, jsonStr) {
-            const data = JSON.parse(unescape(jsonStr));
+        window.editNews = function(id) {
+            const data = cache.news[id];
+            if (!data) return;
             document.getElementById('news-id').value = id;
             document.getElementById('news-title').value = data.title || '';
             document.getElementById('news-category').value = data.category || '';
@@ -291,15 +307,16 @@
             };
 
             if (teamId) {
+                delete teamData.createdAt;
                 db.collection('team').doc(teamId).update(teamData).then(() => {
                     alert('Member details updated successfully!');
                     resetTeamForm();
-                });
+                }).catch(err => alert(err.message));
             } else {
                 db.collection('team').add(teamData).then(() => {
                     alert('Leadership member added successfully!');
                     resetTeamForm();
-                });
+                }).catch(err => alert(err.message));
             }
         });
 
@@ -321,14 +338,15 @@
                 let html = '';
                 snapshot.forEach((doc) => {
                     const data = doc.data();
+                    cache.team[doc.id] = data;
                     html += `
                         <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex justify-between items-start">
                             <div>
-                                <p class="font-bold text-slate-800 text-sm">${data.name}</p>
-                                <p class="text-xs text-teal-700 font-semibold">${data.role}</p>
+                                <p class="font-bold text-slate-800 text-sm">${escapeHTML(data.name)}</p>
+                                <p class="text-xs text-teal-700 font-semibold">${escapeHTML(data.role)}</p>
                             </div>
                             <div class="flex space-x-2">
-                                <button onclick="editTeam('${doc.id}', \`${escape(JSON.stringify(data))}\`)" class="text-blue-600 hover:text-blue-800 text-sm font-semibold"><i class="fa-solid fa-pen-to-square"></i></button>
+                                <button onclick="editTeam('${doc.id}')" class="text-blue-600 hover:text-blue-800 text-sm font-semibold"><i class="fa-solid fa-pen-to-square"></i></button>
                                 <button onclick="deleteTeam('${doc.id}')" class="text-red-600 hover:text-red-800 text-sm font-semibold"><i class="fa-solid fa-trash"></i></button>
                             </div>
                         </div>
@@ -338,8 +356,9 @@
             });
         }
 
-        window.editTeam = function(id, jsonStr) {
-            const data = JSON.parse(unescape(jsonStr));
+        window.editTeam = function(id) {
+            const data = cache.team[id];
+            if (!data) return;
             document.getElementById('team-id').value = id;
             document.getElementById('team-name').value = data.name || '';
             document.getElementById('team-role').value = data.role || '';
@@ -371,15 +390,16 @@
                 let html = '';
                 snapshot.forEach((doc) => {
                     const msg = doc.data();
+                    cache.messages[doc.id] = msg;
                     html += `
                         <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 flex justify-between items-start hover:border-teal-300 transition">
-                            <div class="cursor-pointer flex-1 pr-3" onclick="viewMessage(\`${escape(JSON.stringify(msg))}\`)">
-                                <p class="font-bold text-slate-800 text-sm">${msg.name} <span class="text-xs font-normal text-slate-500">(${msg.email})</span></p>
-                                <p class="text-xs font-semibold text-teal-600 mt-1">${msg.subject}</p>
-                                <p class="text-xs text-slate-600 mt-1 leading-relaxed line-clamp-2">${msg.message}</p>
+                            <div class="cursor-pointer flex-1 pr-3" onclick="viewMessage('${doc.id}')">
+                                <p class="font-bold text-slate-800 text-sm">${escapeHTML(msg.name)} <span class="text-xs font-normal text-slate-500">(${escapeHTML(msg.email)})</span></p>
+                                <p class="text-xs font-semibold text-teal-600 mt-1">${escapeHTML(msg.subject)}</p>
+                                <p class="text-xs text-slate-600 mt-1 leading-relaxed line-clamp-2">${escapeHTML(msg.message)}</p>
                             </div>
                             <div class="flex items-center space-x-2">
-                                <button onclick="viewMessage(\`${escape(JSON.stringify(msg))}\`)" title="View Full Message" class="text-teal-600 hover:text-teal-800 text-sm font-semibold p-1"><i class="fa-solid fa-eye"></i></button>
+                                <button onclick="viewMessage('${doc.id}')" title="View Full Message" class="text-teal-600 hover:text-teal-800 text-sm font-semibold p-1"><i class="fa-solid fa-eye"></i></button>
                                 <button onclick="deleteMessage('${doc.id}')" title="Delete Message" class="text-red-600 hover:text-red-800 text-sm font-semibold p-1"><i class="fa-solid fa-trash"></i></button>
                             </div>
                         </div>
@@ -389,8 +409,9 @@
             });
         }
 
-        window.viewMessage = function(jsonStr) {
-            const msg = JSON.parse(unescape(jsonStr));
+        window.viewMessage = function(id) {
+            const msg = cache.messages[id];
+            if (!msg) return;
             document.getElementById('modal-name').innerText = msg.name || 'Anonymous';
             document.getElementById('modal-email').innerText = msg.email ? `(${msg.email})` : '';
             document.getElementById('modal-subject').innerText = msg.subject || 'No Subject';
