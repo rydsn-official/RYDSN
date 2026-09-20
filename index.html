@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rohingya Youth Development Society Network (RYDSN)</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans">
+
+    <!-- Navigation Header -->
+    <nav class="bg-white shadow-md fixed w-full top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20">
+                <div class="flex items-center space-x-3">
+                    <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold text-xl">RY</div>
+                    <div>
+                        <span class="text-xl font-bold text-blue-900 block leading-tight">RYDSN</span>
+                        <span class="text-xs text-slate-500 hidden sm:block">Rohingya Youth Development Society Network</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-6 text-sm font-semibold text-slate-700">
+                    <a href="#about" class="hover:text-blue-600 transition">About Us</a>
+                    <a href="#programs" class="hover:text-blue-600 transition">Programs</a>
+                    <a href="#impact" class="hover:text-blue-600 transition">Our Impact</a>
+                    <a href="#news" class="hover:text-blue-600 transition">News & Updates</a>
+                    <a href="#contact" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="pt-32 pb-20 bg-gradient-to-br from-blue-900 via-blue-800 to-indigo-900 text-white">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <span class="bg-blue-500/30 text-blue-200 text-sm font-semibold px-4 py-1.5 rounded-full border border-blue-400/30 inline-block mb-4">Empowering Youth • Building Resilience • Creating Opportunities</span>
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-6 leading-tight">Rohingya Youth Development<br>Society Network (RYDSN)</h1>
+            <p class="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto mb-8">
+                A youth-led organization committed to empowering Rohingya young people and communities through education, skills development, leadership, protection, advocacy, and community-based initiatives.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#programs" class="bg-white text-blue-900 font-bold px-6 py-3 rounded-lg shadow hover:bg-blue-50 transition">Explore Programs</a>
+                <a href="#contact" class="bg-blue-600 text-white font-bold px-6 py-3 rounded-lg shadow hover:bg-blue-700 border border-blue-500 transition">Get Involved</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Vision & Mission -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-8">
+            <div class="bg-blue-50 p-8 rounded-2xl border border-blue-100">
+                <div class="w-12 h-12 bg-blue-600 text-white rounded-lg flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-eye"></i></div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-3">Our Vision</h3>
+                <p class="text-slate-600 leading-relaxed">“A safe, empowered, educated, and resilient Rohingya community where every young person has the opportunity to learn, lead, participate, and build a better future.”</p>
+            </div>
+            <div class="bg-indigo-50 p-8 rounded-2xl border border-indigo-100">
+                <div class="w-12 h-12 bg-indigo-600 text-white rounded-lg flex items-center justify-center text-xl mb-4"><i class="fa-solid fa-bullseye"></i></div>
+                <h3 class="text-2xl font-bold text-slate-900 mb-3">Our Mission</h3>
+                <p class="text-slate-600 leading-relaxed">“To empower Rohingya youth through education, skills development, leadership, protection, advocacy, and meaningful community participation.”</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dynamic News & Updates Section -->
+    <section id="news" class="py-16 bg-slate-100">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold text-slate-900">News & Updates</h2>
+                <p class="text-slate-600 mt-2">Latest announcements, events, and stories from RYDSN</p>
+            </div>
+            <!-- Dynamic Content loaded from Firestore -->
+            <div id="news-container" class="grid md:grid-cols-3 gap-6">
+                <div class="col-span-3 text-center text-slate-500 py-8">Loading updates...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Form Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-slate-900">Connect With RYDSN</h2>
+                <p class="text-slate-600 mt-2">Send us a message or inquiry</p>
+            </div>
+            <form id="contact-form" class="space-y-4 bg-slate-50 p-8 rounded-2xl border border-slate-200">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <input type="text" id="sender-name" placeholder="Your Name" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                    <input type="email" id="sender-email" placeholder="Your Email" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                </div>
+                <input type="text" id="sender-subject" placeholder="Subject" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600">
+                <textarea id="sender-message" rows="4" placeholder="Your Message" required class="w-full px-4 py-3 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-blue-600"></textarea>
+                <button type="submit" class="w-full bg-blue-600 text-white font-bold py-3 rounded-lg hover:bg-blue-700 transition">Send Message</button>
+            </form>
+            <div id="form-status" class="mt-4 text-center font-semibold"></div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-900 text-slate-400 py-8 text-center text-sm">
+        <p>&copy; 2026 Rohingya Youth Development Society Network (RYDSN). All rights reserved.</p>
+        <a href="admin.html" class="text-slate-600 hover:text-slate-400 mt-2 inline-block">Admin Login</a>
+    </footer>
+
+    <!-- Firebase SDKs -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-auth-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-firestore-compat.js"></script>
+
+    <script>
+        // REPLACE WITH YOUR FIREBASE CONFIG
+        const firebaseConfig = {
+            apiKey: "YOUR_API_KEY",
+            authDomain: "YOUR_PROJECT_ID.firebaseapp.com",
+            projectId: "YOUR_PROJECT_ID",
+            storageBucket: "YOUR_PROJECT_ID.appspot.com",
+            messagingSenderId: "YOUR_MESSAGING_SENDER_ID",
+            appId: "YOUR_APP_ID"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.firestore();
+
+        // Fetch News
+        const newsContainer = document.getElementById('news-container');
+        db.collection('news').orderBy('createdAt', 'desc').onSnapshot((snapshot) => {
+            if (snapshot.empty) {
+                newsContainer.innerHTML = '<p class="col-span-3 text-center text-slate-500">No news updates available right now.</p>';
+                return;
+            }
+            let html = '';
+            snapshot.forEach((doc) => {
+                const item = doc.data();
+                html += `
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200">
+                        <span class="text-xs font-bold text-blue-600 uppercase tracking-wider">${item.category || 'Update'}</span>
+                        <h3 class="text-xl font-bold text-slate-900 mt-2 mb-3">${item.title}</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4">${item.details}</p>
+                        <span class="text-xs text-slate-400">${item.date || ''}</span>
+                    </div>
+                `;
+            });
+            newsContainer.innerHTML = html;
+        });
+
+        // Submit Contact Form
+        const contactForm = document.getElementById('contact-form');
+        const formStatus = document.getElementById('form-status');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            db.collection('messages').add({
+                name: document.getElementById('sender-name').value,
+                email: document.getElementById('sender-email').value,
+                subject: document.getElementById('sender-subject').value,
+                message: document.getElementById('sender-message').value,
+                createdAt: firebase.firestore.FieldValue.serverTimestamp()
+            }).then(() => {
+                formStatus.className = "text-green-600 font-bold";
+                formStatus.innerText = "Thank you! Your message has been sent successfully.";
+                contactForm.reset();
+            }).catch((err) => {
+                formStatus.className = "text-red-600 font-bold";
+                formStatus.innerText = "Error: " + err.message;
+            });
+        });
+    </script>
+</body>
+</html>
